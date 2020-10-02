@@ -21,16 +21,17 @@
         android:layout_width="140dp"
         android:layout_height="149dp"
         android:layout_margin="20dp"
-        android:src="@drawable/oyster"
+        android:src="@drawable/who_are_you"
         tools:layout_editor_absoluteX="135dp"
         tools:layout_editor_absoluteY="152dp"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvlLetslogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed"
+        android:onClick="onClick"
         android:text="로그인하시오"
         android:textSize="24sp"
         android:typeface="normal"
@@ -38,7 +39,7 @@
         tools:layout_editor_absoluteY="323dp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnStart"
         android:layout_width="194dp"
         android:layout_height="96dp"
         android:onClick="onClick"
