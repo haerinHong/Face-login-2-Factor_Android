@@ -10,11 +10,15 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="회원가입 "
+        android:layout_marginTop="124dp"
+        android:text="회원가입 창"
         android:textSize="30sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="59dp"
-        tools:layout_editor_absoluteY="124dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.223"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -23,8 +27,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/logo"
-        tools:layout_editor_absoluteY="2dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="2dp" />
 
     <EditText
         android:id="@+id/etName"
@@ -33,9 +37,12 @@
         android:ems="10"
         android:hint="이름"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="59dp"
-        tools:layout_editor_absoluteY="204dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.293"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.297" />
 
     <EditText
         android:id="@+id/etPhone"
@@ -44,9 +51,12 @@
         android:ems="10"
         android:hint="전화번호(010-xxxx-xxxx)"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="59dp"
-        tools:layout_editor_absoluteY="290dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.293"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.413" />
 
     <Button
         android:id="@+id/btnCheckDuplicate"
@@ -54,9 +64,13 @@
         android:layout_height="wrap_content"
         android:onClick="onRegisterClick"
         android:text="중복확인"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="288dp"
-        tools:layout_editor_absoluteY="293dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.894"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.415"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/btnImageUpload"
@@ -64,27 +78,39 @@
         android:layout_height="52dp"
         android:onClick="onRegisterClick"
         android:text="이미지 업로드"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="59dp"
-        tools:layout_editor_absoluteY="420dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.192"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.6"
+        tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/ivRegisterFace"
         android:layout_width="121dp"
         android:layout_height="119dp"
         android:src="@drawable/who_are_you"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="62dp"
-        tools:layout_editor_absoluteY="503dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.203"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.789"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="얼굴 사진을 업로드 하시오"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="62dp"
-        tools:layout_editor_absoluteY="381dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.232"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.523"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/btnRegister"
@@ -92,18 +118,24 @@
         android:layout_height="63dp"
         android:onClick="onRegisterClick"
         android:text="회원가입"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="3dp"
-        tools:layout_editor_absoluteY="664dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.005"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.994" />
 
     <ImageView
         android:id="@+id/ivcamera"
         android:layout_width="45dp"
         android:layout_height="59dp"
         android:onClick="onRegisterClick"
-        app:srcCompat="@drawable/camera"
-        tools:layout_editor_absoluteX="178dp"
-        tools:layout_editor_absoluteY="420dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.607"
+        app:srcCompat="@drawable/camera" />
 
     <Button
         android:id="@+id/btnCancelRegister"
@@ -112,6 +144,10 @@
         android:layout_marginBottom="4dp"
         android:text="취소"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="213dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

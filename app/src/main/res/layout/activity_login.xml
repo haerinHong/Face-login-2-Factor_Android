@@ -13,8 +13,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/logo"
-        tools:layout_editor_absoluteY="2dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="2dp" />
 
     <EditText
         android:id="@+id/et_phone"
@@ -65,6 +65,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
+        android:hint="비밀번호"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -75,9 +76,15 @@
         android:id="@+id/btnBack"
         android:layout_width="96dp"
         android:layout_height="72dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="654dp"
+        android:layout_marginEnd="310dp"
+        android:layout_marginBottom="5dp"
         android:onClick="onClick"
         android:text="뒤로가기"
-        tools:layout_editor_absoluteX="2dp"
-        tools:layout_editor_absoluteY="658dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

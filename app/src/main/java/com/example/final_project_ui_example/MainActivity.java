@@ -16,11 +16,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void onclick(View view) {
+    public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.tvlLetslogin :
+            case R.id.btnLetslogin :
                 Intent login = new Intent(MainActivity.this, LoginActivity.class);
-                startActivityForResult(login, LOGIN_ACTIVITY);
+                 startActivityForResult(login, LOGIN_ACTIVITY);
                 break;
             case R.id.btnStart:
                 Intent Start = new Intent(MainActivity.this, LoginActivity.class);

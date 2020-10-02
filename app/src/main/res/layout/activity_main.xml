@@ -1,50 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="482dp"
-        android:layout_height="112dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/logo"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="2dp" />
+        android:id="@+id/imageView6"
+        android:layout_width="match_parent"
+        android:layout_height="101dp"
+        app:srcCompat="@drawable/face_logo" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/rv_image_area"
         android:layout_width="140dp"
         android:layout_height="149dp"
-        android:layout_margin="20dp"
-        android:src="@drawable/who_are_you"
-        tools:layout_editor_absoluteX="135dp"
-        tools:layout_editor_absoluteY="152dp"
-        tools:ignore="MissingConstraints" />
+        android:layout_gravity="center"
+        android:src="@drawable/who_are_you" />
 
-    <TextView
-        android:id="@+id/tvlLetslogin"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/btnLetslogin"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed"
+        android:background="@color/common_google_signin_btn_text_dark_default"
         android:onClick="onClick"
-        android:text="로그인하시오"
+        android:text="로그인 하시오"
+        android:textColor="@android:color/tertiary_text_dark"
         android:textSize="24sp"
-        android:typeface="normal"
-        tools:layout_editor_absoluteX="142dp"
-        tools:layout_editor_absoluteY="323dp" />
+        android:typeface="normal" />
 
     <Button
         android:id="@+id/btnStart"
         android:layout_width="194dp"
         android:layout_height="96dp"
+        android:layout_gravity="center"
         android:onClick="onClick"
-        android:text="인증 시작하기"
-        tools:layout_editor_absoluteX="108dp"
-        tools:layout_editor_absoluteY="619dp" />
+        android:text="인증 시작하기" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
