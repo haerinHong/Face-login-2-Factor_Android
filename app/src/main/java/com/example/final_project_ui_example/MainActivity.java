@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
     public final static int START_ACTIVITY = 200 ;
     public final static int REGISTER_ACTIVITY = 300;
     public final static int START_ACTIVITY2 = 400 ;
+    private MyDBHelper myDBHelper;
     @Override
    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
