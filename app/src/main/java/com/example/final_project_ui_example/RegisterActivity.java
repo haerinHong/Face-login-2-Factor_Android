@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.ImageDecoder;
 import android.net.Uri;
 import android.os.Build;
@@ -18,6 +19,7 @@ import android.provider.MediaStore;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -29,6 +31,7 @@ import androidx.core.content.FileProvider;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import android.content.Intent;
@@ -50,6 +53,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.sdsmdg.tastytoast.TastyToast;
 
 import java.io.File;
 import java.io.IOException;
@@ -64,10 +68,12 @@ public class RegisterActivity extends AppCompatActivity {
     EditText etPhone;
     ImageView ivcamera;
     ImageView ivRegisterFace;
+    Button btnImageUpload;
     String byteArray;
 
     String mCurrentPhotoPath;
     final static int REQUEST_TAKE_PHOTO = 1;
+    final static int IMAGE_UP_LOAD = 116;
     final private static String TAG = "Register_haerin";
 
     DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
@@ -83,9 +89,11 @@ public class RegisterActivity extends AppCompatActivity {
         textName = (TextView)findViewById(R.id.tvName);
         ivcamera = (ImageView)findViewById(R.id.ivcamera);
         ivRegisterFace = (ImageView)findViewById(R.id.ivRegisterFace);
+        btnImageUpload = (Button)findViewById(R.id.btnImageUpload);
 
         name = etName.getText().toString();
         phone = etPhone.getText().toString();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 
     @Override
@@ -109,11 +117,22 @@ public class RegisterActivity extends AppCompatActivity {
     public void onRegisterClick(View view) {
         switch(view.getId()) {
             case R.id.btnCheckDuplicate : // 전화번호를 db 내 검색해 중복 값 확인
-                Toast.makeText(RegisterActivity.this, etPhone.getText().toString() + "\n사용가능한 전화번호 입니다.", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(RegisterActivity.this, etPhone.getText().toString() + "\n사용가능한 전화번호 입니다.", Toast.LENGTH_SHORT).show();
+//                if('중복 아님')
+                TastyToast.makeText(getApplicationContext(), etPhone.getText().toString()+"\n등록이 완료되었습니다", TastyToast.LENGTH_LONG,
+                        TastyToast.SUCCESS);
+//                else ('중복 일때')
+                TastyToast.makeText(getApplicationContext(), "중복된 전화번호입니다", TastyToast.LENGTH_LONG,
+                        TastyToast.ERROR);
                 break;
-            case R.id.btnImageUpload:
+            case R.id.btnImageUpload: //사진을 앨범에서 가져오는 버튼.
+                Intent ImageUpload = new Intent();
+                ImageUpload.setType("image/*");
+                ImageUpload.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(ImageUpload, IMAGE_UP_LOAD);
+                break;
 
-                break;
+
             case R.id.ivRegisterFace : //사진 업로드시 보여줘야할 imageview
                 break;
             case R.id.btnRegister: // db연결, 추가 후, Toast로 띄워준다.
@@ -187,6 +206,17 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                     break;
                 }
+                case IMAGE_UP_LOAD:
+                    if (resultCode == RESULT_OK) {
+                        try {
+                            InputStream in = getContentResolver().openInputStream(intent.getData());
+                            Bitmap img = BitmapFactory.decodeStream(in);
+                            in.close();
+                            ivRegisterFace.setImageBitmap(img);
+                        } catch (Exception e) {e.printStackTrace();}
+                    } else if (requestCode == RESULT_CANCELED) {
+                        Toast.makeText(RegisterActivity.this, "사진 선택 취소", Toast.LENGTH_LONG).show();
+                    }
             }
         } catch (Exception error) {
             error.printStackTrace();

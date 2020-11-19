@@ -30,9 +30,12 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import static com.example.final_project_ui_example.Loading_Activity.LOADING;
+
 public class PhotoActivity extends Activity {
     final private static String TAG = "haerin";
     final private static int OTP_ACTIVITY = 500;
+    final private static int LOADING_ACTIVITY = 560;
     Button btn_photo;
     Button btn_ok;
     ImageView iv_photo;
@@ -41,6 +44,7 @@ public class PhotoActivity extends Activity {
 
     String mCurrentPhotoPath;
     final static int REQUEST_TAKE_PHOTO = 1;
+    public final static int LOADING = 560;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -82,8 +86,11 @@ public class PhotoActivity extends Activity {
                 switch (view.getId()) {
                     case R.id.btn_send:
                         Toast.makeText(PhotoActivity.this, "당신의 바이트는 " + byteArray, Toast.LENGTH_SHORT).show();
-                        Intent otp_intent = new Intent(PhotoActivity.this, Otp_Activity.class);
-                        startActivityForResult(otp_intent, OTP_ACTIVITY);
+                        Intent loading_intent = new Intent(PhotoActivity.this, Loading_Activity.class);
+                        startActivity(loading_intent);
+//                        startActivityForResult(loading_intent, LOADING_ACTIVITY);
+//                        Intent otp_intent = new Intent(PhotoActivity.this, Otp_Activity.class);
+//                        startActivityForResult(otp_intent, OTP_ACTIVITY);
                 }
             }
         });
@@ -154,6 +161,12 @@ public class PhotoActivity extends Activity {
                         }
                     }
                     break;
+                }
+                case LOADING_ACTIVITY: {
+                    if (resultCode == LOADING) {
+                        Intent otp_intent = new Intent(PhotoActivity.this, Otp_Activity.class);
+                        startActivityForResult(otp_intent, OTP_ACTIVITY);
+                    }
                 }
             }
         } catch (Exception error) {

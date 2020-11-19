@@ -37,9 +37,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="208dp"
+        android:background="@drawable/border"
         android:ems="10"
         android:hint="이름"
+        android:padding="@dimen/activity_vertical_margin"
         android:inputType="textPersonName"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,9 +52,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="288dp"
+        android:background="@drawable/border"
         android:ems="10"
-        android:hint="전화번호(010-xxxx-xxxx)"
+        android:hint="전화번호(010xxxxxxxx)"
         android:inputType="textPersonName"
+        android:padding="@dimen/activity_vertical_margin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

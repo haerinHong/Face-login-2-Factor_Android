@@ -21,7 +21,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Loading_Activity"></activity>
+        <activity android:name=".Last_Login"></activity>
+        <activity android:name=".Loading_Activity" />
         <activity android:name=".Otp_Activity" />
         <activity android:name=".IfLogin" />
         <activity android:name=".PhotoActivity" />
