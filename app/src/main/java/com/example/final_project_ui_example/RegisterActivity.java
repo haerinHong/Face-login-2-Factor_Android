@@ -1,10 +1,12 @@
 package com.example.final_project_ui_example;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 import android.Manifest;
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -59,6 +61,15 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RegisterActivity extends AppCompatActivity {
     String name;
@@ -70,6 +81,7 @@ public class RegisterActivity extends AppCompatActivity {
     ImageView ivRegisterFace;
     Button btnImageUpload;
     String byteArray;
+    Button btnCheckDuplicate;
 
     String mCurrentPhotoPath;
     final static int REQUEST_TAKE_PHOTO = 1;
@@ -79,6 +91,10 @@ public class RegisterActivity extends AppCompatActivity {
     DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
     DatabaseReference conditionRef = mRootRef.child("ename");
 //    DatabaseReference conditionRefPhone = mRootRef.child("phone");
+
+//  Register Retrofit2 실행하는 서비스
+    GitHubService service;
+    HashMap<String, Object> input;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,10 +106,71 @@ public class RegisterActivity extends AppCompatActivity {
         ivcamera = (ImageView)findViewById(R.id.ivcamera);
         ivRegisterFace = (ImageView)findViewById(R.id.ivRegisterFace);
         btnImageUpload = (Button)findViewById(R.id.btnImageUpload);
+        btnCheckDuplicate = (Button)findViewById(R.id.btnCheckDuplicate);
 
         name = etName.getText().toString();
         phone = etPhone.getText().toString();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://192.168.22.67:8000/")
+                .addConverterFactory(GsonConverterFactory.create()) //아래의 service에서 callback 받는것을 자동으로 Convert 해주게 하는것
+                .build();
+
+
+//        final User chosun = new User("초선이", "01022223303");
+        input = new HashMap<>();
+//        input.put("user_name", chosun.getUserName());
+//        input.put("phone", chosun.getPhone());
+
+        service = retrofit.create(GitHubService.class);
+
+        btnCheckDuplicate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    service.listRepos("register").enqueue(new Callback<List<Repo>>() {
+                        @Override
+                        public void onResponse(Call<List<Repo>> call, Response<List<Repo>> response) {
+                            if(response.isSuccessful()) {
+                                Log.d("RegisterActivity "+ "check Duplicate", "접속 성공\n" + response.raw());
+                            }
+                            List<Repo> repos = response.body();
+                            int res_code = 0;
+                            for (Repo item: repos) {
+                                Log.d("RegisterActivity"+ "check Duplicate" , "Retrofit2 Test : "+item.getUserName() + item.getPhone());
+                                if (item.getPhone().equals(etPhone.getText().toString())) {
+                                    res_code = 1;
+                                    break;
+                                }
+                            }
+                            if (res_code == 1) {
+                                Log.d("RegisterActivity" + "check Duplicate" , "중복이다");
+                                TastyToast.makeText(getApplicationContext(), "중복된 전화번호입니다", TastyToast.LENGTH_LONG,
+                        TastyToast.ERROR);
+                            } else {
+                                Log.d("RegisterActivity" + "check Duplicate", "중복이 아니다.");
+                                TastyToast.makeText(getApplicationContext(), etPhone.getText().toString()+"\n사용가능한 전화번호 입니다.", TastyToast.LENGTH_LONG,
+                        TastyToast.SUCCESS);
+                            }
+
+                        }
+
+                        @Override
+                        public void onFailure(Call<List<Repo>> call, Throwable t) {
+                            Log.e("RegisterActivity" + "check Duplicate"+ "onFailure",t.getMessage());
+                            Log.e("RegisterActivity" + "check Duplicate",t.getStackTrace().toString());
+
+                        }
+                    });
+                }catch (Exception ex) {
+                    Log.e("RegisterActivity" + "실패2 ", ex.getMessage());
+                    Log.e("RegisterActivity", ex.getLocalizedMessage());
+                }
+            }
+        });
     }
 
     @Override
@@ -116,15 +193,19 @@ public class RegisterActivity extends AppCompatActivity {
 
     public void onRegisterClick(View view) {
         switch(view.getId()) {
-            case R.id.btnCheckDuplicate : // 전화번호를 db 내 검색해 중복 값 확인
+//            case R.id.btnCheckDuplicate : // 전화번호를 db 내 검색해 중복 값 확인
 //                Toast.makeText(RegisterActivity.this, etPhone.getText().toString() + "\n사용가능한 전화번호 입니다.", Toast.LENGTH_SHORT).show();
 //                if('중복 아님')
-                TastyToast.makeText(getApplicationContext(), etPhone.getText().toString()+"\n등록이 완료되었습니다", TastyToast.LENGTH_LONG,
-                        TastyToast.SUCCESS);
-//                else ('중복 일때')
-                TastyToast.makeText(getApplicationContext(), "중복된 전화번호입니다", TastyToast.LENGTH_LONG,
-                        TastyToast.ERROR);
-                break;
+//                ◆◆Retrofit 합체!!◆◆
+
+
+//              예쁜 Toast
+//                TastyToast.makeText(getApplicationContext(), etPhone.getText().toString()+"\n등록이 완료되었습니다", TastyToast.LENGTH_LONG,
+//                        TastyToast.SUCCESS);
+////                else ('중복 일때')
+//                TastyToast.makeText(getApplicationContext(), "중복된 전화번호입니다", TastyToast.LENGTH_LONG,
+//                        TastyToast.ERROR);
+//                break;
             case R.id.btnImageUpload: //사진을 앨범에서 가져오는 버튼.
                 Intent ImageUpload = new Intent();
                 ImageUpload.setType("image/*");
@@ -138,12 +219,52 @@ public class RegisterActivity extends AppCompatActivity {
             case R.id.btnRegister: // db연결, 추가 후, Toast로 띄워준다.
                 conditionRef.setValue(etName.getText().toString());
 //                conditionRefPhone.setValue(phone);
-                Intent register_intent = new Intent();
-                register_intent.putExtra("name", etName.getText().toString());
-                register_intent.putExtra("phone", etPhone.getText().toString());
-                setResult(1000, register_intent);
-                Log.d("REGISTER_ACTIVITY", etName.getText().toString() + " phone = "+ etPhone.getText().toString());
-                finish();
+
+//                ◆◆Retrofit Post 연결◆◆
+                String input_name = etName.getText().toString();
+                String input_phone = etPhone.getText().toString();
+
+                final User chosun = new User(input_name, input_phone);
+//                input = new HashMap<>();
+                input.put("user_name", chosun.getUserName());
+                input.put("phone", chosun.getPhone());
+
+                try {
+                    service.postPeople("register/", input).enqueue(new Callback<User>() {
+                        @Override
+                        public void onResponse(Call<User> call, Response<User> response) {
+                            if(response.isSuccessful()) {
+                                Log.d("RegisterActivity", "접속 성공\n" + response.raw());
+                                User postMessages= response.body();
+                                Log.d("RegisterActivity" , "Retrofit2 Test : "+postMessages.getMessage());
+
+
+                                Intent register_intent = new Intent();
+                                register_intent.putExtra("name", etName.getText().toString());
+                                register_intent.putExtra("phone", etPhone.getText().toString());
+                                setResult(1000, register_intent);
+                                Log.d("REGISTER_ACTIVITY", etName.getText().toString() + " phone = "+ etPhone.getText().toString());
+                                finish();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<User> call, Throwable t) {
+                            Log.e("RegisterActivity" + "실패1",t.getMessage());
+                            Log.e("RegisterActivity",t.getStackTrace().toString());
+
+//                            등록 실패시 AlertDialog를 띄워주는 함수
+                            registerfail(1);
+                        }
+                    });
+
+                }catch (Exception ex) {
+                    Log.e("RegisterActivity" + "실패2 ", ex.getMessage());
+                    Log.e("RegisterActivity", ex.getLocalizedMessage());
+
+//                  등록 실패시 AlertDialog를 띄워주는 함수
+                    registerfail(2);
+                }
                 break;
 
             case R.id.btnCancelRegister:
@@ -154,6 +275,34 @@ public class RegisterActivity extends AppCompatActivity {
                 break;
         }
     }
+    public void registerfail(int code) {
+        AlertDialog.Builder dlg = new AlertDialog.Builder(RegisterActivity.this);
+        dlg.setTitle("안내 메세지"); //제목
+        dlg.setMessage("회원가입 등록 오류"); // 메시지
+        if (code == 1) {
+
+        } else if (code==2) {
+
+        }
+
+//        dlg.setIcon(R.drawable.); // 아이콘 설정
+//                버튼 클릭시 동작
+        dlg.setPositiveButton("동의",new DialogInterface.OnClickListener(){
+            public void onClick(DialogInterface dialog, int which) {
+                //토스트 메시지
+                Toast.makeText(RegisterActivity.this,"동의하셨습니다.", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        dlg.setNegativeButton("거절", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(RegisterActivity.this,"거절하셨습니다. \n Facein 회원가입이 어렵습니다.", Toast.LENGTH_SHORT).show();
+            }
+        });
+        dlg.show();
+    }
+
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if(takePictureIntent.resolveActivity(getPackageManager()) != null) {

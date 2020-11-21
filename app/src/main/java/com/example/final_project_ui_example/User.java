@@ -1,58 +1,51 @@
 package com.example.final_project_ui_example;
 
-import java.util.Date;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 public class User {
-    public int user_id;
-    public String account_number;
-    public String user_name;
-    public Date created_date;
-    public String phone;
-    public int istrain;
+    @Expose
+    @SerializedName("user_name")
+    private String user_name;
 
-    public User() {
-        super();
+    @Expose
+    @SerializedName("phone")
+    private String phone;
+
+    @Expose
+    @SerializedName("message")
+    private String message;
+
+    @Expose
+    @SerializedName("otp")
+    private String otp;
+
+    public String getOtp() {
+        return otp;
     }
 
-    public User(int user_id, String account_number, String user_name, Date created_date, String phone, int istrain) {
-        this.user_id = user_id;
-        this.account_number = account_number;
+    public void setOtp(String otp) {
+        this.otp = otp;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+    public User(String user_name, String phone) {
         this.user_name = user_name;
-        this.created_date = created_date;
         this.phone = phone;
-        this.istrain = istrain;
     }
 
-    public int getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
-    }
-
-    public String getAccount_number() {
-        return account_number;
-    }
-
-    public void setAccount_number(String account_number) {
-        this.account_number = account_number;
-    }
-
-    public String getUser_name() {
+    public String getUserName() {
         return user_name;
     }
 
-    public void setUser_name(String user_name) {
+    public void setUserName(String user_name) {
         this.user_name = user_name;
-    }
-
-    public Date getCreated_date() {
-        return created_date;
-    }
-
-    public void setCreated_date(Date created_date) {
-        this.created_date = created_date;
     }
 
     public String getPhone() {
@@ -62,12 +55,5 @@ public class User {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-
-    public int getIstrain() {
-        return istrain;
-    }
-
-    public void setIstrain(int istrain) {
-        this.istrain = istrain;
-    }
 }
+
