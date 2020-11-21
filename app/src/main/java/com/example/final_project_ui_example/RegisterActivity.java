@@ -131,46 +131,43 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    service.listRepos("register").enqueue(new Callback<List<Repo>>() {
+
+                    input.put("user_name",etName.getText().toString() );
+                    input.put("phone", etPhone.getText().toString());
+                    service.postDuplicatedPeople("register1/",input).enqueue(new Callback<User>() {
                         @Override
-                        public void onResponse(Call<List<Repo>> call, Response<List<Repo>> response) {
-                            if(response.isSuccessful()) {
-                                Log.d("RegisterActivity "+ "check Duplicate", "접속 성공\n" + response.raw());
-                            }
-                            List<Repo> repos = response.body();
-                            int res_code = 0;
-                            for (Repo item: repos) {
-                                Log.d("RegisterActivity"+ "check Duplicate" , "Retrofit2 Test : "+item.getUserName() + item.getPhone());
-                                if (item.getPhone().equals(etPhone.getText().toString())) {
-                                    res_code = 1;
-                                    break;
+                        public void onResponse(Call<User> call, Response<User> response) {
+                            if (response.isSuccessful()) {
+                                Log.d("RegisterActivity " + "check Duplicate", "접속 성공\n" + response.raw());
+
+                                User postMessages = response.body();
+                                String duplicated_res = postMessages.getMessage();
+                                if (duplicated_res.equals("중복")) {
+                                    Log.d("RegisterActivity" + "check Duplicate", "중복이다");
+                                    TastyToast.makeText(getApplicationContext(), "중복된 전화번호입니다", TastyToast.LENGTH_LONG,
+                                            TastyToast.ERROR);
+                                } else {
+                                    Log.d("RegisterActivity" + "check Duplicate", "중복이 아니다.");
+                                    TastyToast.makeText(getApplicationContext(), etPhone.getText().toString() + "\n사용가능한 전화번호 입니다.", TastyToast.LENGTH_LONG,
+                                            TastyToast.SUCCESS);
                                 }
                             }
-                            if (res_code == 1) {
-                                Log.d("RegisterActivity" + "check Duplicate" , "중복이다");
-                                TastyToast.makeText(getApplicationContext(), "중복된 전화번호입니다", TastyToast.LENGTH_LONG,
-                        TastyToast.ERROR);
-                            } else {
-                                Log.d("RegisterActivity" + "check Duplicate", "중복이 아니다.");
-                                TastyToast.makeText(getApplicationContext(), etPhone.getText().toString()+"\n사용가능한 전화번호 입니다.", TastyToast.LENGTH_LONG,
-                        TastyToast.SUCCESS);
-                            }
-
                         }
-
                         @Override
-                        public void onFailure(Call<List<Repo>> call, Throwable t) {
-                            Log.e("RegisterActivity" + "check Duplicate"+ "onFailure",t.getMessage());
-                            Log.e("RegisterActivity" + "check Duplicate",t.getStackTrace().toString());
+                        public void onFailure(Call<User> call, Throwable t) {
 
+                            Log.e("MainActivity" + "실패1",t.getMessage());
+                            Log.e("MainActivity",t.getStackTrace().toString());
                         }
                     });
                 }catch (Exception ex) {
-                    Log.e("RegisterActivity" + "실패2 ", ex.getMessage());
-                    Log.e("RegisterActivity", ex.getLocalizedMessage());
+                    Log.e("MainActivity" + "실패2 ", ex.getMessage());
+                    Log.e("MainActivity", ex.getLocalizedMessage());
                 }
+
             }
-        });
+            });
+
     }
 
     @Override
@@ -238,13 +235,21 @@ public class RegisterActivity extends AppCompatActivity {
                                 User postMessages= response.body();
                                 Log.d("RegisterActivity" , "Retrofit2 Test : "+postMessages.getMessage());
 
+//                                제대로 회원가입 했는지 여부
+                                String register_res = postMessages.getMessage();
 
-                                Intent register_intent = new Intent();
-                                register_intent.putExtra("name", etName.getText().toString());
-                                register_intent.putExtra("phone", etPhone.getText().toString());
-                                setResult(1000, register_intent);
-                                Log.d("REGISTER_ACTIVITY", etName.getText().toString() + " phone = "+ etPhone.getText().toString());
-                                finish();
+                                if (register_res.equals("등록 성공")) {
+                                    Intent register_intent = new Intent();
+                                    register_intent.putExtra("name", etName.getText().toString());
+                                    register_intent.putExtra("phone", etPhone.getText().toString());
+                                    setResult(1000, register_intent);
+
+                                    Log.d("REGISTER_ACTIVITY 성공 축하합니다", etName.getText().toString() + " phone = "+ etPhone.getText().toString());
+                                    finish();
+                                } else {
+                                    Log.d("RegisterActivity", "접속은 했지만 등록은 실패" + response.raw());
+                                }
+
                             }
                         }
 
@@ -278,11 +283,28 @@ public class RegisterActivity extends AppCompatActivity {
     public void registerfail(int code) {
         AlertDialog.Builder dlg = new AlertDialog.Builder(RegisterActivity.this);
         dlg.setTitle("안내 메세지"); //제목
-        dlg.setMessage("회원가입 등록 오류"); // 메시지
+        String error1 = "서버 접속은 했으나 실패했습니다.";
+        String error2 = "서버 접속에 실패했습니다.";
+        dlg.setIcon(R.drawable.registeralertdialog);
+
         if (code == 1) {
+            dlg.setMessage("회원가입 등록 오류"); // 메시지
+            dlg.setPositiveButton(error1,new DialogInterface.OnClickListener(){
+                public void onClick(DialogInterface dialog, int which) {
+                    //토스트 메시지
+                    Toast.makeText(RegisterActivity.this,"확인하셨습니다..", Toast.LENGTH_SHORT).show();
 
+                }
+            });
         } else if (code==2) {
+            dlg.setMessage("회원가입 등록 오류"); // 메시지
+            dlg.setPositiveButton(error2,new DialogInterface.OnClickListener(){
+                public void onClick(DialogInterface dialog, int which) {
+                    //토스트 메시지
+                    Toast.makeText(RegisterActivity.this,"확인하셨습니다..", Toast.LENGTH_SHORT).show();
 
+                }
+            });
         }
 
 //        dlg.setIcon(R.drawable.); // 아이콘 설정

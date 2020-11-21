@@ -20,6 +20,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+//    repositories {
+//        maven {
+//            url "http://dl.bintray.com/glomadrian/maven"
+//        }
+//    }
 }
 
 dependencies {
@@ -51,4 +56,11 @@ dependencies {
 //    Retrofit2
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+
+//    otp 입력하는 layout
+    implementation  'com.chaos.view:pinview:1.3.0'
+//    otp Timer Clock
+
+    implementation 'com.github.sureshmaidaragi1919:CircularTimer:1.1'
+
 }

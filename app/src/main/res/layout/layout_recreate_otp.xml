@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity_otpotp"
+    android:background="#446455"
+    android:backgroundTint="#446455">
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#1B3A2C"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="413dp"
+        android:layout_height="186dp"
+        android:layout_marginTop="56dp"
+        android:background="#709281"
+        android:textSize="120sp"
+        app:layout_constraintTop_toBottomOf="@+id/textView12"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="336dp"
+        android:layout_height="354dp"
+        android:layout_marginTop="176dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="248dp"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.851" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="335dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="73dp"
+        android:layout_marginEnd="76dp"
+        android:background="#C7CC00"
+        android:gravity="center"
+        android:text="     2차 인증 OTP"
+        android:textAlignment="textStart"
+        android:textColor="#1B3A2C"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <com.chaos.view.PinView
+        android:id="@+id/secondPinView"
+        style="@style/PinWidget.PinView"
+        android:layout_width="324dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="259dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="151dp"
+        android:hint="123456"
+        android:inputType="number"
+        android:itemBackground="@mipmap/ic_launcher"
+        android:padding="@dimen/common_padding"
+        android:textColor="#C7CC00"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:cursorColor="#FFFF00"
+        app:cursorWidth="2dp"
+        app:itemCount="5"
+        app:itemHeight="48dp"
+        app:itemRadius="4dp"
+        app:itemSpacing="0dp"
+        app:itemWidth="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:lineColor="#446455"
+        app:lineWidth="2dp"
+        app:viewType="rectangle" />
+
+    <ImageView
+        android:id="@+id/btnOtpSend"
+        android:layout_width="96dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="122dp"
+        android:layout_marginTop="280dp"
+        android:layout_marginEnd="118dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView12"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView12"
+        app:layout_constraintTop_toTopOf="@+id/textView12"
+        app:srcCompat="@drawable/send_logo2" />
+
+    <com.view.circulartimerview.CircularTimerView
+        android:id="@+id/progress_circular"
+        android:layout_width="86dp"
+        android:layout_height="80dp"
+        app:backgroundColor="#446455"
+        app:backgroundWidth="8"
+        app:isClockwise="true"
+        app:layout_constraintBottom_toTopOf="@+id/btnOtpSend"
+        app:layout_constraintEnd_toEndOf="@+id/textView12"
+        app:layout_constraintHorizontal_bias="0.933"
+        app:layout_constraintStart_toStartOf="@+id/textView12"
+        app:layout_constraintTop_toTopOf="@+id/secondPinView"
+        app:layout_constraintVertical_bias="0.702"
+        app:maxValue="100"
+        app:prefix="Time"
+        app:progressBackgroundColor="#446455"
+        app:progressColor="#ffff00"
+        app:progressText="Time Remaining..."
+        app:progressTextColor="#ffff5a"
+        app:startingPoint="bottom"
+        app:suffix=" 초"
+        app:textSize="10sp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -42,10 +42,18 @@ public interface GitHubService {
 //                         @Body HashMap<String, Object> param);
 
 //    이거는 돌아감
-    @GET("{register}")
-    Call<List<Repo>> listRepos(@Path("register") String register);
+//    @GET("{register}")
+//    Call<List<Repo>> listRepos(@Path("register") String register);
 //                               @Body HashMap<String, Object> param);
 //                                       String user);
+
+    //    중복여부 확인
+    @POST("{register1}")
+    Call<User> postDuplicatedPeople(
+            @Path("register1") String register,
+            @Body HashMap<String, Object> param
+    );
+
 
 
     @POST("{otp_url}")

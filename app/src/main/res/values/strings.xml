@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Final_project_UI_example</string>
+
+    <string name="password_label">Password:</string>
+    <string name="pin_label">PIN:</string>
 </resources>

@@ -30,6 +30,7 @@ public final static int LOADING = 560;
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
+//                Intent loading = new Intent(getBaseContext(), Otp_Activity.class);
                 Intent loading = new Intent(getBaseContext(), Otp_Activity.class);
                 startActivity(loading);
                 finish();

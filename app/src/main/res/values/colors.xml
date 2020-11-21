@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimary">#446455 </color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#ffff00</color>
+
+    <color name="text_selected">#b0003a</color>
+    <color name="text_focused">#c7cc00</color>
+    <color name="text_default">#ffff00 </color>
+    <color name="text_hint_default">#BDBDBD</color>
+    <color name="line_selected">#ffff00 </color>
+    <color name="line_focused">#446455 </color>
+    <color name="line_default">#C5CAE9</color>
 </resources>
