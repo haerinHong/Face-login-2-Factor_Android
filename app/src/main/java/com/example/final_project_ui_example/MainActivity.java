@@ -36,9 +36,7 @@ public class MainActivity extends AppCompatActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnLetslogin :
-//                Intent login = new Intent(MainActivity.this, LoginActivity.class);
-//                 startActivityForResult(login, LOGIN_ACTIVITY);
-
+//                개인정보 수집 동의서
                 AlertDialog.Builder dlg = new AlertDialog.Builder(MainActivity.this);
                 dlg.setTitle("개인정보 수집 동의서"); //제목
                 dlg.setMessage("◆수집항목◆ : 성명, 전화번호, 얼굴 정보 \n ◆수집 및 이용 목적◆\n - Facein 인증 진행 \n - 사용자 사진의 스푸핑 및 본인 식별 \n - 사용자 자원 관리 \n" +
@@ -67,8 +65,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
                 dlg.show();
-
-
                 break;
             case R.id.btnStart:
                 Intent Start = new Intent(MainActivity.this, PhotoActivity.class);
