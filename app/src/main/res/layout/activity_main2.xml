@@ -69,14 +69,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/tmoneyroundwindregular"
-            android:text="님, 환영합니다"
+            android:text="홍혜린님, 환영합니다"
             android:textAlignment="center"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="@+id/textView5"
             app:layout_constraintHorizontal_bias="0.546"
             app:layout_constraintStart_toStartOf="@+id/textView5"
-            tools:layout_editor_absoluteY="206dp"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="206dp" />
 
         <TextView
             android:id="@+id/textView5"
@@ -84,12 +84,12 @@
             android:layout_height="24dp"
             android:background="#ffff00 "
             android:fontFamily="@font/tmoneyroundwindextrabold"
-            android:text="님의 감정 분석 결과"
+            android:text="홍혜린님의 감정 분석 결과"
             android:textAlignment="center"
             android:textSize="18sp"
+            tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="36dp"
-            tools:layout_editor_absoluteY="254dp"
-            tools:ignore="MissingConstraints" />
+            tools:layout_editor_absoluteY="254dp" />
 
         <TextView
             android:id="@+id/textView13"
@@ -240,7 +240,7 @@
             android:layout_marginTop="40dp"
             android:background="#ffff00 "
             android:fontFamily="@font/tmoneyroundwindextrabold"
-            android:text="님의 얼굴 분석 결과"
+            android:text="홍혜린님의 얼굴 분석 결과"
             android:textAlignment="center"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/imageView7"
@@ -279,8 +279,14 @@
             android:id="@+id/graph"
             android:layout_width="280dp"
             android:layout_height="258dp"
-            tools:layout_editor_absoluteX="64dp"
-            tools:layout_editor_absoluteY="623dp" />
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="120dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView12"
+            app:layout_constraintEnd_toEndOf="@+id/textView26"
+            app:layout_constraintHorizontal_bias="0.346"
+            app:layout_constraintStart_toStartOf="@+id/textView12"
+            app:layout_constraintTop_toBottomOf="@+id/textView18"
+            app:layout_constraintVertical_bias="1.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
