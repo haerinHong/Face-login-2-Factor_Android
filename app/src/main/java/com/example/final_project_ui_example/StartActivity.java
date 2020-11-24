@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 
@@ -13,6 +14,7 @@ import com.sdsmdg.harjot.rotatingtext.models.Rotatable;
 
 public class StartActivity extends Activity {
     private static final String TAG = "StartActivity";
+    private static Typeface typeface;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,11 +24,16 @@ public class StartActivity extends Activity {
         Handler hd = new Handler();
         hd.postDelayed(new splashhandler(), 5000); // 1초 후에 hd handler 실행  3000ms = 3초
 
+        typeface = Typeface.createFromAsset(this.getAssets(), "tmoneyroundwindextrabold.otf");
+
 
         RotatingTextWrapper rotatingTextWrapper = (RotatingTextWrapper) findViewById(R.id.custom_switcher);
         rotatingTextWrapper.setSize(35);
+        rotatingTextWrapper.setTypeface(typeface);
+
         Rotatable rotatable = new Rotatable(Color.parseColor("#ffff00"), 1000, "With Face", "And OTP", "By도원결의");;
         rotatable.setSize(35);
+        rotatable.setTypeface(typeface);
         rotatable.setAnimationDuration(500);
         rotatingTextWrapper.setContent("Log-in ", rotatable);
 
