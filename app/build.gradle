@@ -65,4 +65,7 @@ dependencies {
     //    First Page
 //    why..
     implementation 'com.sdsmdg.harjot:rotatingtext:1.0.2'
+
+//    graph 그리기
+    implementation 'com.jjoe64:graphview:4.2.2'
 }
