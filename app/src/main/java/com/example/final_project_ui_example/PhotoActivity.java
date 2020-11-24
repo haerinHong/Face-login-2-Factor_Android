@@ -66,6 +66,7 @@ public class PhotoActivity extends Activity {
         iv_photo = findViewById(R.id.iv_photo);
         btn_photo = findViewById(R.id.btn_photo);
         btn_ok = findViewById(R.id.btn_send);
+        iv_photo.bringToFront();
 
 //      ◆◆Retrofit2◆◆
         retrofit = new Retrofit.Builder()

@@ -1,61 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:background="#446455">
 
-        <ImageView
-            android:id="@+id/imageView"
+
+        <TextView
+            android:id="@+id/textView9"
             android:layout_width="match_parent"
-            android:layout_height="115dp"
-            app:srcCompat="@drawable/logo" />
+            android:layout_height="40dp"
+            android:background="#1B3A2C"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="413dp"
+            android:layout_height="186dp"
+            android:layout_marginTop="44dp"
+            android:background="#709281"
+            android:textSize="120sp"
+            app:layout_constraintTop_toBottomOf="@+id/textView12"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="333dp"
+            android:layout_height="649dp"
+            android:layout_marginTop="60dp"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/rv_image_area"
-            android:layout_width="140dp"
-            android:layout_height="149dp"
-            android:layout_gravity="center"
-            android:layout_margin="20dp"
-            android:src="@drawable/oyster" />
+            android:id="@+id/round_profile"
+            android:layout_width="159dp"
+            android:layout_height="140dp"
+            android:layout_marginBottom="40dp"
+            android:src="@drawable/avatar_me"
+            app:layout_constraintBottom_toBottomOf="@+id/textView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.515"
+            app:layout_constraintStart_toStartOf="@+id/textView9" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="양문일님, 환영합니다"
-            android:textSize="30sp" />
+            android:fontFamily="@font/tmoneyroundwindregular"
+            android:text="님, 환영합니다"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView5"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="@+id/textView5"
+            tools:layout_editor_absoluteY="203dp" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="333dp"
+            android:layout_height="wrap_content"
+            android:background="#ffff00 "
+            android:fontFamily="@font/tmoneyroundwindextrabold"
+            android:text="님의 감정 분석 결과"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            tools:layout_editor_absoluteX="39dp"
+            tools:layout_editor_absoluteY="254dp" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="298dp"
+            android:layout_height="227dp"
+            android:background="#A8BDB3"
+            tools:layout_editor_absoluteX="66dp"
+            tools:layout_editor_absoluteY="301dp" />
 
         <TextView
             android:id="@+id/textView6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="36sp" />
+            android:layout_width="306dp"
+            android:layout_height="234dp"
+            android:background="#FFFF8B"
+            tools:layout_editor_absoluteX="52dp"
+            tools:layout_editor_absoluteY="286dp" />
 
-        <Button
-            android:id="@+id/btnStart"
-            android:layout_width="194dp"
-            android:layout_height="96dp"
-            android:layout_gravity="center"
-            android:onClick="onClick"
-            android:text="인증 시작하기" />
-    </LinearLayout>
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="318dp"
+            android:layout_height="55dp"
+            android:fontFamily="@font/tmoneyroundwindextrabold"
+            android:text='"   \n                                     "'
+            android:textColor="#1B3A2C"
+            android:textSize="28sp"
+            tools:layout_editor_absoluteX="52dp"
+            tools:layout_editor_absoluteY="286dp" />
 
-    <FrameLayout
-        android:id="@+id/main_frame"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="307dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/tmoneyroundwindextrabold"
+            android:text="홍혜린님은 오늘 좋은 일이 있으신가봐요.\n 저희 도원결의가 기쁨을 포착했습니다"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="@+id/textView6"
+            tools:layout_editor_absoluteX="51dp" />
 
-
-    </FrameLayout>
-</LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

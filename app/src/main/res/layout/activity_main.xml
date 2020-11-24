@@ -20,7 +20,7 @@
             app:srcCompat="@drawable/logo" />
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/rv_image_area"
+            android:id="@+id/round_profile"
             android:layout_width="140dp"
             android:layout_height="149dp"
             android:layout_gravity="center"
