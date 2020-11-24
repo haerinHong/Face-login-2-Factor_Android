@@ -29,7 +29,13 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 import static com.example.final_project_ui_example.Loading_Activity.LOADING;
 
 public class PhotoActivity extends Activity {
@@ -45,6 +51,12 @@ public class PhotoActivity extends Activity {
     String mCurrentPhotoPath;
     final static int REQUEST_TAKE_PHOTO = 1;
     public final static int LOADING = 560;
+    GitHubService service;
+    int photo_result = 0;
+    Retrofit retrofit;
+    HashMap<String, Object> input;
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,6 +66,15 @@ public class PhotoActivity extends Activity {
         iv_photo = findViewById(R.id.iv_photo);
         btn_photo = findViewById(R.id.btn_photo);
         btn_ok = findViewById(R.id.btn_send);
+
+//      ◆◆Retrofit2◆◆
+        retrofit = new Retrofit.Builder()
+//                .baseUrl("http://192.168.22.67:8000/")
+                .baseUrl("http://192.168.22.65:8000/")
+                .addConverterFactory(GsonConverterFactory.create()) //아래의 service에서 callback 받는것을 자동으로 Convert 해주게 하는것
+                .build();
+
+
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if(checkSelfPermission(Manifest.permission.CAMERA) ==
@@ -85,7 +106,47 @@ public class PhotoActivity extends Activity {
             public void onClick(View view) {
                 switch (view.getId()) {
                     case R.id.btn_send:
+                        Log.d("여기1", Integer.toString(photo_result));
+                        //                        ◆◆ 레트로핏 통신 ◆◆
+                        if (photo_result == 1) {
+                            //       OTP를 받아오는 레트로핏 통신
+                            service = retrofit.create(GitHubService.class);
+                            try {
+                                input = new HashMap<>();
+                                input.put("img", byteArray);
+
+                                int byte_len = byteArray.length();
+                                Log.d("PhotoActivity 길이길이", Integer.toString(byte_len));
+                                service.getimage("img/", input).enqueue(new Callback<Image>() {
+                                    @Override
+                                    public void onResponse(Call<Image> call, Response<Image> response) {
+                                        Log.d("PhotoActivity", "접속 성공\n" + response.raw());
+                                        Image postMessages = response.body();
+                                        Log.d("PhotoActivity", "Photo ___ Retrofit2 Test : " + postMessages.getMessage());
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<Image> call, Throwable t) {
+                                        Log.e("PhotoActivity" + "photo failure", t.getMessage());
+                                        Log.e("PhotoActivity", t.getStackTrace().toString());
+                                    }
+                                });
+                            } catch (Exception ex) {
+                                Log.e("PhotoActivity" + "접속조차 실패 ", ex.getMessage());
+                                Log.e("PhotoActivity", ex.getLocalizedMessage());
+                            }
+
+                        }
+
+
+
+
+
                         Toast.makeText(PhotoActivity.this, "당신의 바이트는 " + byteArray, Toast.LENGTH_SHORT).show();
+
+
+
+
                         Intent loading_intent = new Intent(PhotoActivity.this, Loading_Activity.class);
                         startActivity(loading_intent);
 //                        startActivityForResult(loading_intent, LOADING_ACTIVITY);
@@ -143,6 +204,7 @@ public class PhotoActivity extends Activity {
                                     iv_photo.setImageBitmap(bitmap);
                                     byteArray = bitmapToByteArray(bitmap);
                                     Log.d(TAG, "당신의 바이트는 " + byteArray);
+                                    photo_result = 1;
                                 }
                             } catch (IOException e) {
                                 e.printStackTrace();
@@ -154,6 +216,7 @@ public class PhotoActivity extends Activity {
                                     iv_photo.setImageBitmap(bitmap);
                                     byteArray = bitmapToByteArray(bitmap);
                                     Log.d(TAG, "당신의 바이트는 " + byteArray);
+                                    photo_result = 1;
                                 }
                             } catch (IOException e) {
                                 e.printStackTrace();
@@ -164,12 +227,13 @@ public class PhotoActivity extends Activity {
                 }
                 case LOADING_ACTIVITY: {
                     if (resultCode == LOADING) {
+                        Log.d("여기2 ", byteArray);
                         Intent otp_intent = new Intent(PhotoActivity.this, Otp_Activity.class);
                         startActivityForResult(otp_intent, OTP_ACTIVITY);
                     }
                 }
             }
-        } catch (Exception error) {
+        }  catch (Exception error) {
             error.printStackTrace();
         }
     }

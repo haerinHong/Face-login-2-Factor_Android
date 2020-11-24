@@ -29,6 +29,12 @@ import retrofit2.http.Query;
 
 public interface GitHubService {
     // GET 방식
+    @POST("{image}")
+    Call<Image> getimage(
+            @Path("image") String imagepath,
+            @Body HashMap<String, Object> param
+//            @Query("imagefile") String imagefile
+    );
 
 
     @POST("{register}")
