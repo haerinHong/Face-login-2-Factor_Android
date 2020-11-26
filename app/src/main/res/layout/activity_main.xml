@@ -25,7 +25,7 @@
             android:layout_height="149dp"
             android:layout_gravity="center"
             android:gravity="center"
-            android:src="@drawable/who_are_you" />
+            android:src="@drawable/whoareyou_user" />
 
         <Button
             android:id="@+id/btnLetslogin"

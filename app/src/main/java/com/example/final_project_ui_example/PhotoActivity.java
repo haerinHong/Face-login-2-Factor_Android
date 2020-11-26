@@ -3,6 +3,7 @@ package com.example.final_project_ui_example;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.Service;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -26,11 +27,16 @@ import androidx.core.content.FileProvider;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -56,7 +62,13 @@ public class PhotoActivity extends Activity {
     Retrofit retrofit;
     HashMap<String, Object> input;
 
-
+    long now = System.currentTimeMillis();
+    Date date = new Date(now);
+    // 시간을 나타냇 포맷을 정한다 ( yyyy/MM/dd 같은 형태로 변형 가능 )
+    SimpleDateFormat nowTime = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
+    // nowDate 변수에 값을 저장한다.
+    String now_Time = nowTime.format(date);
+    File f;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -71,9 +83,10 @@ public class PhotoActivity extends Activity {
 //      ◆◆Retrofit2◆◆
         retrofit = new Retrofit.Builder()
 //                .baseUrl("http://192.168.22.67:8000/")
-                .baseUrl("http://192.168.22.65:8000/")
+                .baseUrl("http://192.168.88.128:8000/")
                 .addConverterFactory(GsonConverterFactory.create()) //아래의 service에서 callback 받는것을 자동으로 Convert 해주게 하는것
                 .build();
+
 
 
 
@@ -112,37 +125,53 @@ public class PhotoActivity extends Activity {
                         if (photo_result == 1) {
                             //       OTP를 받아오는 레트로핏 통신
                             service = retrofit.create(GitHubService.class);
+
+                            RequestBody reqFile = RequestBody.create(MediaType.parse("image/*"), f);
+                            MultipartBody.Part body = MultipartBody.Part.createFormData("upload", now_Time, reqFile);
+
+
                             try {
                                 input = new HashMap<>();
                                 input.put("img", byteArray);
 
                                 int byte_len = byteArray.length();
                                 Log.d("PhotoActivity 길이길이", Integer.toString(byte_len));
-                                service.getimage("img/", input).enqueue(new Callback<Image>() {
+
+                                Call<okhttp3.ResponseBody> req = service.postImage(body);
+                                req.enqueue(new Callback<ResponseBody>() {
                                     @Override
-                                    public void onResponse(Call<Image> call, Response<Image> response) {
+                                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                                         Log.d("PhotoActivity", "접속 성공\n" + response.raw());
-                                        Image postMessages = response.body();
-                                        Log.d("PhotoActivity", "Photo ___ Retrofit2 Test : " + postMessages.getMessage());
+//                                        Image postMessages = response.body();
                                     }
 
                                     @Override
-                                    public void onFailure(Call<Image> call, Throwable t) {
-                                        Log.e("PhotoActivity" + "photo failure", t.getMessage());
+                                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+                                        Log.e("ResponseBody", t.getMessage());
                                         Log.e("PhotoActivity", t.getStackTrace().toString());
                                     }
                                 });
+
+//                                service.getimage("img/", input).enqueue(new Callback<Image>() {
+//                                    @Override
+//                                    public void onResponse(Call<Image> call, Response<Image> response) {
+//                                        Log.d("PhotoActivity", "접속 성공\n" + response.raw());
+//                                        Image postMessages = response.body();
+//                                        Log.d("PhotoActivity", "Photo ___ Retrofit2 Test : " + postMessages.getMessage());
+//                                    }
+//
+//                                    @Override
+//                                    public void onFailure(Call<Image> call, Throwable t) {
+//                                        Log.e("PhotoActivity" + "photo failure", t.getMessage());
+//                                        Log.e("PhotoActivity", t.getStackTrace().toString());
+//                                    }
+//                                });
                             } catch (Exception ex) {
                                 Log.e("PhotoActivity" + "접속조차 실패 ", ex.getMessage());
                                 Log.e("PhotoActivity", ex.getLocalizedMessage());
                             }
 
                         }
-
-
-
-
-
                         Toast.makeText(PhotoActivity.this, "당신의 바이트는 " + byteArray, Toast.LENGTH_SHORT).show();
 
 
@@ -169,12 +198,25 @@ public class PhotoActivity extends Activity {
         }
     }
 
-    public String bitmapToByteArray(Bitmap bitmapPicture) {
+    public String bitmapToByteArray(Bitmap bitmapPicture) throws IOException {
         String encodedImage;
+//        Create a file to write bitmap data
+        f = new File(getBaseContext().getCacheDir(), now_Time);
+        f.createNewFile();
+
+//        Convert bitmap to byte array
+
         ByteArrayOutputStream byteArrayBitmapStream = new ByteArrayOutputStream();
         bitmapPicture.compress(Bitmap.CompressFormat.PNG, 100, byteArrayBitmapStream);
         byte[] b = byteArrayBitmapStream.toByteArray();
         encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
+
+        //write the bytes in file
+        FileOutputStream fos = new FileOutputStream(f);
+        fos.write(b);
+        fos.flush();
+        fos.close();
+
         return encodedImage;
     }
 //    private String getStringFromBitmap(Bitmap bitmapPicture) {

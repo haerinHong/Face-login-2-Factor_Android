@@ -102,7 +102,6 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         etName = (EditText)findViewById(R.id.etName);
         etPhone = (EditText)findViewById(R.id.etPhone);
-        textName = (TextView)findViewById(R.id.tvName);
         ivcamera = (ImageView)findViewById(R.id.ivcamera);
         ivRegisterFace = (ImageView)findViewById(R.id.ivRegisterFace);
         btnImageUpload = (Button)findViewById(R.id.btnImageUpload);
@@ -115,7 +114,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.22.65:8000/")
+                .baseUrl("http://192.168.88.128:8000/")
                 .addConverterFactory(GsonConverterFactory.create()) //아래의 service에서 callback 받는것을 자동으로 Convert 해주게 하는것
                 .build();
 
@@ -170,23 +169,6 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        conditionRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String ename = dataSnapshot.getValue(String.class);
-                textName.setText(ename);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }
 
     public void onRegisterClick(View view) {
         switch(view.getId()) {

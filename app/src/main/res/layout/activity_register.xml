@@ -7,142 +7,149 @@
     tools:context=".RegisterActivity"
     android:layout_height="match_parent">
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_height="match_parent"
-    android:id="@+id/relativeLayout"
-    android:layout_width="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#436354">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="124dp"
-        android:text="회원가입 창"
-        android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="405dp"
+            android:layout_height="69dp"
+            android:background="#1b3a2c "
+            android:text="TextView" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="405dp"
-        android:layout_height="92dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        <TextView
+            android:id="@+id/textView27"
+            android:layout_width="343dp"
+            android:layout_height="538dp"
+            android:background="#FFFFFF"
+            tools:layout_editor_absoluteX="34dp"
+            tools:layout_editor_absoluteY="88dp" />
 
-    <EditText
-        android:id="@+id/etName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="208dp"
-        android:background="@drawable/border"
-        android:ems="10"
-        android:hint="이름"
-        android:padding="@dimen/activity_vertical_margin"
-        android:inputType="textPersonName"
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/tmoneyroundwindextrabold"
+            android:text="회원가입 창"
+            android:textSize="30sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="222dp"
+            android:layout_height="67dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="208dp"
+            android:background="@drawable/border"
+            android:ems="10"
+            android:fontFamily="@font/tmoneyroundwindregular"
+            android:hint="이름"
+            android:inputType="textPersonName"
 
-    <EditText
-        android:id="@+id/etPhone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="288dp"
-        android:background="@drawable/border"
-        android:ems="10"
-        android:hint="전화번호(010xxxxxxxx)"
-        android:inputType="textPersonName"
-        android:padding="@dimen/activity_vertical_margin"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            android:padding="@dimen/activity_vertical_margin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnCheckDuplicate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="256dp"
-        android:layout_marginTop="288dp"
-        android:onClick="onRegisterClick"
-        android:text="중복확인"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/etPhone"
+            android:layout_width="221dp"
+            android:layout_height="61dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="288dp"
+            android:background="@drawable/border"
+            android:ems="10"
+            android:fontFamily="@font/tmoneyroundwindregular"
+            android:hint="전화번호(010xxxxxxxx)"
+            android:inputType="textPersonName"
+            android:padding="@dimen/activity_vertical_margin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnImageUpload"
-        android:layout_width="105dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="432dp"
-        android:onClick="onRegisterClick"
-        android:text="이미지 업로드"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/btnCheckDuplicate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="256dp"
+            android:layout_marginTop="300dp"
+            android:fontFamily="@font/tmoneyroundwindregular"
+            android:onClick="onRegisterClick"
+            android:text="중복확인"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/ivRegisterFace"
-        android:layout_width="121dp"
-        android:layout_height="119dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="500dp"
-        android:src="@drawable/who_are_you"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/btnImageUpload"
+            android:layout_width="110dp"
+            android:layout_height="58dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="432dp"
+            android:fontFamily="@font/tmoneyroundwindregular"
+            android:onClick="onRegisterClick"
+            android:text="이미지 업로드"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="388dp"
-        android:text="얼굴 사진을 업로드 하시오"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/ivRegisterFace"
+            android:layout_width="121dp"
+            android:layout_height="119dp"
+            android:layout_marginTop="500dp"
+            android:src="@drawable/who_are_you"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.082"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/whoareyou_user" />
 
-    <Button
-        android:id="@+id/btnRegister"
-        android:layout_width="212dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="652dp"
-        android:onClick="onRegisterClick"
-        android:text="회원가입"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="388dp"
+            android:fontFamily="@font/tmoneyroundwindregular"
+            android:text="얼굴 사진을 업로드 하시오"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/ivcamera"
-        android:layout_width="45dp"
-        android:layout_height="59dp"
-        android:layout_marginStart="156dp"
-        android:layout_marginTop="432dp"
-        android:onClick="onRegisterClick"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/camera" />
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="212dp"
+            android:layout_height="63dp"
+            android:layout_marginTop="652dp"
+            android:fontFamily="@font/tmoneyroundwindregular"
+            android:onClick="onRegisterClick"
+            android:text="회원가입"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnCancelRegister"
-        android:layout_width="195dp"
-        android:layout_height="63dp"
-        android:layout_marginStart="216dp"
-        android:layout_marginTop="652dp"
-        android:onClick="onRegisterClick"
-        android:text="취소"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/ivcamera"
+            android:layout_width="45dp"
+            android:layout_height="59dp"
+            android:layout_marginStart="156dp"
+            android:layout_marginTop="432dp"
+            android:onClick="onRegisterClick"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/camera" />
 
-    <TextView
-        android:id="@+id/tvName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="300dp"
-        android:layout_marginTop="92dp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/btnCancelRegister"
+            android:layout_width="195dp"
+            android:layout_height="63dp"
+            android:layout_marginStart="216dp"
+            android:layout_marginTop="652dp"
+            android:onClick="onRegisterClick"
+            android:text="취소"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
