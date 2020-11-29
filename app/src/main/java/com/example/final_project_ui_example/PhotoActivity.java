@@ -83,7 +83,7 @@ public class PhotoActivity extends Activity {
 //      ◆◆Retrofit2◆◆
         retrofit = new Retrofit.Builder()
 //                .baseUrl("http://192.168.22.67:8000/")
-                .baseUrl("http://192.168.88.128:8000/")
+                .baseUrl("http://192.168.22.65:8000/")
                 .addConverterFactory(GsonConverterFactory.create()) //아래의 service에서 callback 받는것을 자동으로 Convert 해주게 하는것
                 .build();
 

@@ -43,7 +43,7 @@ public interface GitHubService {
     );
 
     @Multipart
-    @POST("img/")
+    @POST("img_test/")
     Call<ResponseBody> postImage(
             @Part MultipartBody.Part image);
 
