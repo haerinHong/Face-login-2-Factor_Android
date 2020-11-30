@@ -42,7 +42,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import static com.example.final_project_ui_example.Loading_Activity.LOADING;
+//import static com.example.final_project_ui_example.Loading_Activity.LOADING;
+
+
+
 
 public class PhotoActivity extends Activity {
     final private static String TAG = "haerin";
