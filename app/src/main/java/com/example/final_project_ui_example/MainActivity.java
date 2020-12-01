@@ -10,6 +10,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import org.conscrypt.Conscrypt;
+
+import java.security.Security;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -31,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_main_updating);
+
     }
 
     public void onClick(View view) {
@@ -67,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                 dlg.show();
                 break;
             case R.id.btnStart:
-                Intent Start = new Intent(MainActivity.this, VideoActivity.class);
+                Intent Start = new Intent(MainActivity.this, Otp_Activity.class);
                 startActivityForResult(Start, START_ACTIVITY);
                 break;
 //            case R.id.btn_if_login:

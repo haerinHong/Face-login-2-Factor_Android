@@ -27,7 +27,10 @@ import androidx.core.content.ContextCompat;
 
 import androidx.annotation.NonNull;
 
+import org.conscrypt.Conscrypt;
+
 import java.io.File;
+import java.security.Security;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -60,6 +63,7 @@ public class VideoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video);
+        Security.insertProviderAt(Conscrypt.newProvider(), 1);
 
         takeVideo = findViewById(R.id.take_video_tv);
         videoView = findViewById(R.id.video_view);
