@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 dlg.show();
                 break;
             case R.id.btnStart:
-                Intent Start = new Intent(MainActivity.this, PhotoActivity.class);
+                Intent Start = new Intent(MainActivity.this, VideoActivity.class);
                 startActivityForResult(Start, START_ACTIVITY);
                 break;
 //            case R.id.btn_if_login:

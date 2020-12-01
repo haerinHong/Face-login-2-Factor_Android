@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.ImageDecoder;
+import android.hardware.Camera;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -56,6 +57,7 @@ public class PhotoActivity extends Activity {
     ImageView iv_photo;
     final static int TAKE_PICTURE = 1;
     String byteArray;
+
 
     String mCurrentPhotoPath;
     final static int REQUEST_TAKE_PHOTO = 1;
@@ -140,7 +142,7 @@ public class PhotoActivity extends Activity {
                                 int byte_len = byteArray.length();
                                 Log.d("PhotoActivity 길이길이", Integer.toString(byte_len));
 
-                                Call<okhttp3.ResponseBody> req = service.postImage(body);
+                                Call<okhttp3.ResponseBody> req = service.postVideo(body);
                                 req.enqueue(new Callback<ResponseBody>() {
                                     @Override
                                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -299,6 +301,14 @@ public class PhotoActivity extends Activity {
     }
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        int c = findFrontFacingCamera();
+        if (c < 0) {
+            Toast.makeText(PhotoActivity.this, "No  camera found.",
+                    Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(PhotoActivity.this, "camera_ id " + c,
+                    Toast.LENGTH_LONG).show();
+        }
         if(takePictureIntent.resolveActivity(getPackageManager()) != null) {
             File photoFile = null;
             try { photoFile = createImageFile(); }
@@ -310,5 +320,21 @@ public class PhotoActivity extends Activity {
             }
         }
 
+    }
+
+    private int findFrontFacingCamera() {
+        int cameraId = -1;
+        // Search for the front facing camera
+        int numberOfCameras = Camera.getNumberOfCameras();
+        for (int i = 0; i < numberOfCameras; i++) {
+            Camera.CameraInfo info = new Camera.CameraInfo();
+            Camera.getCameraInfo(i, info);
+            if (info.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {
+                Log.d("Camera ERROR", "Camera found");
+                cameraId = i;
+                break;
+            }
+        }
+        return cameraId;
     }
 }

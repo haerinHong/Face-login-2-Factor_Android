@@ -44,7 +44,7 @@ public interface GitHubService {
 
     @Multipart
     @POST("img_test/")
-    Call<ResponseBody> postImage(
+    Call<ResponseBody> postVideo(
             @Part MultipartBody.Part image);
 
 
