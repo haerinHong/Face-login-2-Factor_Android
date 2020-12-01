@@ -97,4 +97,33 @@ public class IfLogin extends AppCompatActivity {
 
          }
     }
+    public void settingHighestFeeling(String feeling) {
+        switch (feeling) {
+            case "happy":
+                tvFeelingResultSummery.setText("youarehappy");
+                break;
+            case "sad":
+
+                break;
+            case "neutral":
+
+                break;
+
+            case "fearful":
+
+                break;
+
+            case "disgusted":
+
+                break;
+
+            case "angry":
+
+                break;
+
+            case "surprised":
+
+                break;
+        }
+    }
 }
