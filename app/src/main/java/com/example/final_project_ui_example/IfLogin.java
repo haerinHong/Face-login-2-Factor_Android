@@ -68,6 +68,7 @@ public class IfLogin extends AppCompatActivity {
              switch (f) {
                  case "happy" :
 //                     해당 경로에 해당하는 사진으로 바꾸고 % 조절한다.
+
                      break;
                  case "sad" :
 
@@ -97,32 +98,34 @@ public class IfLogin extends AppCompatActivity {
 
          }
     }
-    public void settingHighestFeeling(String feeling) {
+    public void settingHighestFeeling(String feeling, String name) {
+         String feelingresult = name + "님 ";
         switch (feeling) {
             case "happy":
-                tvFeelingResultSummery.setText("youarehappy");
+                feelingresult += "항상 밝은 모습으로 도원결의를 찾아주셔서 감사합니다.\n 오늘 하루도 행복한 하루가 되길 도원결의가 응원합니다.";
+//                tvFeelingResultSummery.setText("youarehappy");
                 break;
             case "sad":
-
+                feelingresult = "무슨 일 있으세요? 도원결의가 " + name + "님의 슬픔을 감지했습니다.";
                 break;
             case "neutral":
-
+                feelingresult = "많이 지치셨나요? 오늘따라 힘이 없어보이네요.\n"+name+"님이 기운찬 하루를 보낼 있도록 도원결의가 응원합니다.";
                 break;
 
             case "fearful":
-
+                feelingresult = "무슨 일 있으세요? 도원결의가 " + name + "님의 두려움을 감지했습니다.";
                 break;
 
             case "disgusted":
-
+                feelingresult = "무슨 일 있으세요? 도원결의가 " + name + "님의 역겨움을 감지했습니다.";
                 break;
 
             case "angry":
-
+                feelingresult = "무슨 일 있으세요? 도원결의가 " + name + "님의 분노를 감지했습니다.";
                 break;
 
             case "surprised":
-
+                feelingresult = "무슨 일 있으세요? 도원결의가 " + name + "님의 놀람을 감지했습니다.";
                 break;
         }
     }

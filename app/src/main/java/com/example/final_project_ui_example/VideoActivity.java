@@ -14,14 +14,11 @@ import android.media.MediaRecorder;
 import android.net.Uri;
 import android.content.Intent;
 
-import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -66,7 +63,7 @@ public class VideoActivity extends AppCompatActivity {
         Security.insertProviderAt(Conscrypt.newProvider(), 1);
 
         takeVideo = findViewById(R.id.take_video_tv);
-        videoView = findViewById(R.id.video_view);
+        videoView = findViewById(R.id.video_preview);
         btnVideoOk = (Button)findViewById(R.id.btnVideoOk);
         iv_photo = (ImageView)findViewById(R.id.iv_photo);
 
@@ -83,8 +80,8 @@ public class VideoActivity extends AppCompatActivity {
 
         //      ◆◆Retrofit2◆◆
         retrofit = new Retrofit.Builder()
-//                .baseUrl("http://192.168.22.67:8000/")
-                .baseUrl("http://192.168.22.65:8000/")
+//                .baseUrl("http://192.168.22.65:8000/")
+                .baseUrl("http://192.168.88.128:8080/")
                 .addConverterFactory(GsonConverterFactory.create()) //아래의 service에서 callback 받는것을 자동으로 Convert 해주게 하는것
                 .build();
 
