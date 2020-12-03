@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import org.conscrypt.Conscrypt;
 
@@ -71,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
                 dlg.show();
                 break;
             case R.id.btnStart:
-                Intent Start = new Intent(MainActivity.this, Otp_Activity.class);
+                Intent Start = new Intent(MainActivity.this, VideoActivity.class);
                 startActivityForResult(Start, START_ACTIVITY);
                 break;
 //            case R.id.btn_if_login:

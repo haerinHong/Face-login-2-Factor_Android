@@ -42,7 +42,7 @@ public class StartActivity extends Activity {
     }
     private class splashhandler implements Runnable{
         public void run(){
-            startActivity(new Intent(getApplication(), MainActivity.class)); //로딩이 끝난 후, ChoiceFunction 이동
+            startActivity(new Intent(StartActivity.this, MainActivity.class)); //로딩이 끝난 후, ChoiceFunction 이동
             StartActivity.this.finish(); // 로딩페이지 Activity stack에서 제거
         }
     }

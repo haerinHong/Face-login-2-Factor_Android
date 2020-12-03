@@ -93,14 +93,14 @@ public class Otp_Activity extends AppCompatActivity {
 
         Retrofit retrofit = new Retrofit.Builder()
 //                .baseUrl("http://192.168.22.67:8000/")
-                .baseUrl("http://192.168.88.128:8080/")
+                .baseUrl("http://192.168.88.128:8000/")
                 .addConverterFactory(GsonConverterFactory.create()) //아래의 service에서 callback 받는것을 자동으로 Convert 해주게 하는것
                 .build();
 
 
 //        ◆◆지금은 초선이로 대체했지만 추후엔 딥러닝에서 받은 사용자의 이름과 전화번호를 받을 것,
 //        그리고 바로 전 Activity인 Loading 에서 사용자의 정보를 받는 레트로핏 통신을 추가할 예정◆◆
-        chosun = new User("초선이", "01022223303");
+        chosun = new User("초선", "01022223303");
         input = new HashMap<>();
         input.put("user_name", chosun.getUserName());
         input.put("phone", chosun.getPhone());
