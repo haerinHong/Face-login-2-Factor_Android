@@ -25,8 +25,11 @@ import androidx.core.content.ContextCompat;
 import androidx.annotation.NonNull;
 
 import org.conscrypt.Conscrypt;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.File;
+import java.io.IOException;
 import java.security.Security;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -81,7 +84,7 @@ public class VideoActivity extends AppCompatActivity {
         //      ◆◆Retrofit2◆◆
         retrofit = new Retrofit.Builder()
 //                .baseUrl("http://192.168.22.65:8000/")
-                .baseUrl("http://192.168.88.128:8080/")
+                .baseUrl("http://192.168.88.128:8000/")
                 .addConverterFactory(GsonConverterFactory.create()) //아래의 service에서 callback 받는것을 자동으로 Convert 해주게 하는것
                 .build();
 
@@ -119,6 +122,24 @@ public class VideoActivity extends AppCompatActivity {
                         public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                             Log.d("VideoActivity", "접속 성공\n" + response.raw());
 //                                        Image postMessages = response.body();
+                            ResponseBody response1 = response.body();
+                            try {
+                                Log.d("VideoActivity", "response.body()string()\n" +response.body().string());
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+//                            try {
+//                                String json = "";
+//                                JSONObject jsonObject = new JSONObject(json);
+//                                String result = response.body().string();
+//
+//                                String name = jsonObject.getString("name");
+//
+//
+//
+//                            } catch (IOException | JSONException e) {
+//                                e.printStackTrace();
+//                            }
 
                             Intent loading_intent = new Intent(VideoActivity.this, Loading_Activity.class);
                             startActivity(loading_intent);
