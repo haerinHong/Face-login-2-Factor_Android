@@ -123,11 +123,13 @@ public class VideoActivity extends AppCompatActivity {
                             Log.d("VideoActivity", "접속 성공\n" + response.raw());
 //                                        Image postMessages = response.body();
                             ResponseBody response1 = response.body();
+                            Log.d("VideoActivity", "response.body()string()\n" +response.body());
                             try {
-                                Log.d("VideoActivity", "response.body()string()\n" +response.body().string());
+                                Log.d("VideoActivity", "response.body()string()\n"+ response.body().string());
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
+
 //                            try {
 //                                String json = "";
 //                                JSONObject jsonObject = new JSONObject(json);
