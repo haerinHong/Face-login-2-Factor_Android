@@ -2,6 +2,7 @@ package com.example.final_project_ui_example;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -37,6 +38,15 @@ public class IfLogin extends AppCompatActivity {
         ivFeeling2 = (ImageView) findViewById(R.id.ivFeeling2);
         ivFeeling3 = (ImageView) findViewById(R.id.ivFeeling3);
 
+        Intent iflogin = getIntent();
+        String real_fake = iflogin.getStringExtra("real_fake");
+        String name = iflogin.getStringExtra("name");
+        String feel1 = iflogin.getStringExtra("feel1");
+        String feel2 =  iflogin.getStringExtra("feel2");
+        String feel3 = iflogin.getStringExtra("feel3");
+        int feel1_state = iflogin.getIntExtra("feel1_state", 70);
+        int feel2_state = iflogin.getIntExtra("feel2_state", 20);
+        int feel3_state = iflogin.getIntExtra("feel3_state", 10);
 
          GraphView graph = (GraphView) findViewById(R.id.graph);
         LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {

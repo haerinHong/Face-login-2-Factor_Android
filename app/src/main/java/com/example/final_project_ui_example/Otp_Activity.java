@@ -78,17 +78,25 @@ public class Otp_Activity extends AppCompatActivity {
     HashMap<String, Object> input2;
     String your_otp;
      User chosun;
+    Intent loading;
+    String user_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otp);
+
+        loading = getIntent();
         tvrRechance = (TextView)findViewById(R.id.tvrRechance);
         btnOtpSend = (ImageView)findViewById(R.id.btnOtpSend);
 
         button = (ImageView)findViewById(R.id.btnOtpSend);
         progressBar = findViewById(R.id.progress_circular);
         progressBar.setProgress(0);
+
+        user_name = loading.getStringExtra("name");
+
+
 
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -232,9 +240,18 @@ public class Otp_Activity extends AppCompatActivity {
                                 String otp_res = postMessages.getMessage();
 
                                 if (otp_res.equals("승인")) {
-                                    Toast.makeText(Otp_Activity.this, "인증에 성공했습니다! \n 초선님, 반갑습니다 ", Toast.LENGTH_SHORT).show();
-                                    Intent iflogin = new Intent(getApplicationContext(), IfLogin.class);
+
+                                    Intent iflogin = new Intent(Otp_Activity.this, IfLogin.class);
+                                    iflogin.putExtra("real_fake", loading.getStringExtra("real_fake"));
+                                    iflogin.putExtra("name", user_name);
+                                    iflogin.putExtra("feel1", loading.getStringExtra("feel1"));
+                                    iflogin.putExtra("feel2", loading.getStringExtra("feel2"));
+                                    iflogin.putExtra("feel3", loading.getStringExtra("feel3"));
+                                    iflogin.putExtra("feel1_state", loading.getIntExtra("feel1_state", 70));
+                                    iflogin.putExtra("feel2_state", loading.getIntExtra("feel2_state", 20));
+                                    iflogin.putExtra("feel3_state", loading.getIntExtra("feel3_state", 10));
                                     startActivity(iflogin);
+//                                    Toast.makeText(Otp_Activity.this, "인증에 성공했습니다! \n 초선님, 반갑습니다 ", Toast.LENGTH_SHORT).show();
 
                                 }else if (otp_res.equals("거부")) {
                                     dialogs();
