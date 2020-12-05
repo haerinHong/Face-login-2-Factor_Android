@@ -31,7 +31,16 @@ public final static int LOADING = 560;
             @Override
             public void run() {
 //                Intent loading = new Intent(getBaseContext(), Otp_Activity.class);
-                Intent loading = new Intent(getBaseContext(), Otp_Activity.class);
+                Intent loading = getIntent();
+                Intent intent = new Intent(Loading_Activity.this, Otp_Activity.class);
+                intent.putExtra("real_fake", loading.getStringExtra("real_fake"));
+                intent.putExtra("name", loading.getStringExtra("name"));
+                intent.putExtra("feel1", loading.getStringExtra("feel1"));
+                intent.putExtra("feel2", loading.getStringExtra("feel2"));
+                intent.putExtra("feel3", loading.getStringExtra("feel3"));
+                intent.putExtra("feel1_state", loading.getIntExtra("feel1_state", 70));
+                intent.putExtra("feel2_state", loading.getIntExtra("feel2_state", 20));
+                intent.putExtra("feel3_state", loading.getIntExtra("feel3_state", 10));
                 startActivity(loading);
                 finish();
             }
