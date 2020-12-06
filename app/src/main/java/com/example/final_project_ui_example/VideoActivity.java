@@ -118,14 +118,54 @@ public class VideoActivity extends AppCompatActivity {
                 SimpleDateFormat nowTime = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
                 String now_Time = nowTime.format(date);
 
-//                File videoFile = new File(getPath(videoUri));
+                File videoFile = new File(getPath(videoUri));
+                RequestBody reqFile = RequestBody.create(MediaType.parse("video/*"), videoFile);
+                MultipartBody.Part body = MultipartBody.Part.createFormData("upload", now_Time, reqFile);
 
-                String videoSendPath = getPath(videoUri);
+                try {
+                    Call<ResponseBody> req = service.postVideo(body);
+                    req.enqueue(new Callback<ResponseBody>() {
+                        @Override
+                        public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                            Log.d("VideoActivity", "접속 성공\n" + response.raw());
 
-                Intent intent = new Intent(VideoActivity.this, Loading_Activity.class);
-                intent.putExtra("videoSendPath", videoSendPath);
-                intent.putExtra("now_Time", now_Time);
-                startActivity(intent);
+                            String videoresult = null;
+                            try {
+                                videoresult = response.body().string();
+                                Log.d("VideoActivity", "response.body()string()\n"+ videoresult);
+                                JSONObject jsonObject = new JSONObject(videoresult);
+
+                                String real_fake = jsonObject.getString("real_fake");
+                                String name = jsonObject.getString("name");
+                                String feel1 = jsonObject.getString("feel1");
+                                String feel2 = jsonObject.getString("feel2");
+                                String feel3 = jsonObject.getString("feel3");
+                                int feel1_state = jsonObject.getInt("feel1_state");
+                                int feel2_state = jsonObject.getInt("feel2_state");
+                                int feel3_state = jsonObject.getInt("feel3_state");
+
+                                Log.d("VideoActivity", "real_fake = "+ real_fake + " name = "+ name + " 1 =  " + feel1 + " 2 =  "+ feel2 + " 3 = "+ feel3);
+                                Log.d("VideoActivity", "feel1 = "+ feel1_state + " feel2 = "+ feel2_state + " feel3_state " + feel3_state);
+
+                            } catch (IOException | JSONException e) {
+                                e.printStackTrace();
+                            }
+
+
+                            Intent loading_intent = new Intent(VideoActivity.this, Loading_Activity.class);
+                            startActivity(loading_intent);
+                        }
+
+                        @Override
+                        public void onFailure(Call<ResponseBody> call, Throwable t) {
+                            Log.e("VideoActivity", t.getMessage());
+                            Log.e("VideoActivity", t.getStackTrace().toString());
+                        }
+                    });
+                } catch (Exception ex) {
+                    Log.e("VideoActivity" + "접속조차 실패 ", ex.getMessage());
+                    Log.e("VideoActivity", ex.getLocalizedMessage());
+                }
                 break;
         }
 
