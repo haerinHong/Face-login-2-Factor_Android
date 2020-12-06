@@ -110,90 +110,90 @@ public class IfLogin extends AppCompatActivity {
                  case 1 :
 //                     해당 경로에 해당하는 사진으로 바꾸고 % 조절한다.
                     if (i == 0) {
-                        ivFeeling1.setImageResource(R.mipmap.happy);
-                        tvFeeling1.setText("감정 1 " + Integer.toString(mes[0]));
+                        ivFeeling1.setImageResource(R.drawable.happy);
+                        tvFeeling1.setText("행복 " + Integer.toString(mes[0]) + "%");
                     } else if (i == 1) {
-                        ivFeeling2.setImageResource(R.mipmap.happy);
-                        tvFeeling2.setText("감정 2 " + Integer.toString(mes[1]));
+                        ivFeeling2.setImageResource(R.drawable.happy);
+                        tvFeeling2.setText("행복  " + Integer.toString(mes[1]) + "%");
                     } else {
-                        ivFeeling3.setImageResource(R.mipmap.happy);
-                        tvFeeling3.setText("감정 3 " +Integer.toString(mes[2]));
+                        ivFeeling3.setImageResource(R.drawable.happy);
+                        tvFeeling3.setText("행복  " +Integer.toString(mes[2]) + "%");
                     }
                      break;
                  case 2 :
                      if (i == 0) {
-                         ivFeeling1.setImageResource(R.mipmap.sad);
-                         tvFeeling1.setText("감정 1 " +Integer.toString(mes[0]));
+                         ivFeeling1.setImageResource(R.drawable.sad);
+                         tvFeeling1.setText("슬픔 " +Integer.toString(mes[0]) + "%");
                      } else if (i == 1) {
-                         ivFeeling2.setImageResource(R.mipmap.sad);
-                         tvFeeling2.setText("감정 2 " +Integer.toString(mes[1]));
+                         ivFeeling2.setImageResource(R.drawable.sad);
+                         tvFeeling2.setText("슬픔 " +Integer.toString(mes[1]) + "%");
                      } else {
-                         ivFeeling3.setImageResource(R.mipmap.sad);
-                         tvFeeling3.setText("감정 3 " +Integer.toString(mes[2]));
+                         ivFeeling3.setImageResource(R.drawable.sad);
+                         tvFeeling3.setText("슬픔 " +Integer.toString(mes[2]) + "%");
                      }
                      break;
                  case 3 :
                      if (i == 0) {
-                         ivFeeling1.setImageResource(R.mipmap.neutral);
-                         tvFeeling1.setText("감정 1 " +Integer.toString(mes[0]));
+                         ivFeeling1.setImageResource(R.drawable.neutral);
+                         tvFeeling1.setText("중립 " +Integer.toString(mes[0]) + "%");
                      } else if (i == 1) {
-                         ivFeeling2.setImageResource(R.mipmap.neutral);
-                         tvFeeling2.setText("감정 2 " +Integer.toString(mes[1]));
+                         ivFeeling2.setImageResource(R.drawable.neutral);
+                         tvFeeling2.setText("중립  " +Integer.toString(mes[1]) + "%");
                      } else {
-                         ivFeeling3.setImageResource(R.mipmap.neutral);
-                         tvFeeling3.setText("감정 3 " +Integer.toString(mes[2]));
+                         ivFeeling3.setImageResource(R.drawable.neutral);
+                         tvFeeling3.setText("중립  " +Integer.toString(mes[2]) + "%");
                      }
                      break;
 
                  case 4 :
                      if (i == 0) {
-                         ivFeeling1.setImageResource(R.mipmap.fearful);
-                         tvFeeling1.setText("감정 1 " +Integer.toString(mes[0]));
+                         ivFeeling1.setImageResource(R.drawable.fearful);
+                         tvFeeling1.setText("두려움 " +Integer.toString(mes[0]) + "%");
                      } else if (i == 1) {
-                         ivFeeling2.setImageResource(R.mipmap.fearful);
-                         tvFeeling2.setText("감정 2 " +Integer.toString(mes[1]));
+                         ivFeeling2.setImageResource(R.drawable.fearful);
+                         tvFeeling2.setText("두려움 " +Integer.toString(mes[1]) + "%");
                      } else {
-                         ivFeeling3.setImageResource(R.mipmap.fearful);
-                         tvFeeling3.setText("감정 3 " +Integer.toString(mes[2]));
+                         ivFeeling3.setImageResource(R.drawable.fearful);
+                         tvFeeling3.setText("두려움 " +Integer.toString(mes[2]) + "%");
                      }
                      break;
 
                  case 5 :
                      if (i == 0) {
-                         ivFeeling1.setImageResource(R.mipmap.disgusted);
-                         tvFeeling1.setText("감정 1 " +Integer.toString(mes[0]));
+                         ivFeeling1.setImageResource(R.drawable.disgusted);
+                         tvFeeling1.setText("역겨움 " +Integer.toString(mes[0]) + "%");
                      } else if (i == 1) {
-                         ivFeeling2.setImageResource(R.mipmap.disgusted);
-                         tvFeeling2.setText("감정 2 " +Integer.toString(mes[1]));
+                         ivFeeling2.setImageResource(R.drawable.disgusted);
+                         tvFeeling2.setText("역겨움 " +Integer.toString(mes[1]) + "%");
                      } else {
-                         ivFeeling3.setImageResource(R.mipmap.disgusted);
-                         tvFeeling3.setText("감정 3 " +Integer.toString(mes[2]));
+                         ivFeeling3.setImageResource(R.drawable.disgusted);
+                         tvFeeling3.setText("역겨움 " +Integer.toString(mes[2]) + "%");
                      }
                      break;
 
                  case 6 :
                      if (i == 0) {
-                         ivFeeling1.setImageResource(R.mipmap.angry);
-                         tvFeeling1.setText("감정 1 " +Integer.toString(mes[0]));
+                         ivFeeling1.setImageResource(R.drawable.angry);
+                         tvFeeling1.setText("화남 " +Integer.toString(mes[0]) + "%");
                      } else if (i == 1) {
-                         ivFeeling2.setImageResource(R.mipmap.angry);
-                         tvFeeling2.setText("감정 2 " +Integer.toString(mes[1]));
+                         ivFeeling2.setImageResource(R.drawable.angry);
+                         tvFeeling2.setText("화남 " +Integer.toString(mes[1]) + "%");
                      } else {
-                         ivFeeling3.setImageResource(R.mipmap.angry);
-                         tvFeeling3.setText("감정 3 " +Integer.toString(mes[2]));
+                         ivFeeling3.setImageResource(R.drawable.angry);
+                         tvFeeling3.setText("화남 " +Integer.toString(mes[2]) + "%");;
                      }
                      break;
 
                  case 7 :
                      if (i == 0) {
-                         ivFeeling1.setImageResource(R.mipmap.surprised);
-                         tvFeeling1.setText("감정 1 " +Integer.toString(mes[0]));
+                         ivFeeling1.setImageResource(R.drawable.surprised);
+                         tvFeeling1.setText("놀람 " +Integer.toString(mes[0]) + "%");
                      } else if (i == 1) {
-                         ivFeeling2.setImageResource(R.mipmap.surprised);
-                         tvFeeling2.setText("감정 2 " +Integer.toString(mes[1]));
+                         ivFeeling2.setImageResource(R.drawable.surprised);
+                         tvFeeling2.setText("놀람 " +Integer.toString(mes[1]) + "%");
                      } else {
-                         ivFeeling3.setImageResource(R.mipmap.surprised);
-                         tvFeeling3.setText("감정 3 " +Integer.toString(mes[2] ));
+                         ivFeeling3.setImageResource(R.drawable.surprised);
+                         tvFeeling3.setText("놀람  " +Integer.toString(mes[2] ) + "%");
                      }
                      break;
              }

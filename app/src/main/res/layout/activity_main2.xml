@@ -196,17 +196,14 @@
             android:id="@+id/ivFeeling1"
             android:layout_width="88dp"
             android:layout_height="91dp"
-            android:layout_marginStart="352dp"
-            android:layout_marginTop="382dp"
-            android:layout_marginEnd="326dp"
-            android:layout_marginBottom="738dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/ivFeeling3"
-            app:layout_constraintHorizontal_bias="0.021"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
+            android:layout_marginStart="122dp"
+            android:layout_marginTop="82dp"
+            android:layout_marginEnd="130dp"
+            android:layout_marginBottom="75dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView6"
+            app:layout_constraintEnd_toEndOf="@+id/textView6"
+            app:layout_constraintStart_toStartOf="@+id/textView6"
+            app:layout_constraintTop_toTopOf="@+id/textView6"
             app:srcCompat="@drawable/avatar_beard" />
 
         <ImageView
@@ -344,16 +341,14 @@
             android:id="@+id/graph"
             android:layout_width="282dp"
             android:layout_height="236dp"
-            android:layout_marginStart="260dp"
-            android:layout_marginTop="656dp"
-            android:layout_marginEnd="222dp"
-            android:layout_marginBottom="355dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            android:layout_marginStart="42dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="68dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView12"
+            app:layout_constraintEnd_toEndOf="@+id/textView19"
+            app:layout_constraintStart_toStartOf="@+id/textView26"
+            app:layout_constraintTop_toTopOf="@+id/textView19" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
