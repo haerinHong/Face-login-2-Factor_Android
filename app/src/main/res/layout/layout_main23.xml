@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#446455">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/round_profile"
+            android:layout_width="159dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/avatar_me" />
+
+        <TextView
+            android:id="@+id/tvWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/tmoneyroundwindregular"
+            android:text="홍혜린님, 환영합니다"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/tvFeelingResultYellow"
+            android:layout_width="343dp"
+            android:layout_height="32dp"
+            android:background="#ffff00 "
+            android:fontFamily="@font/tmoneyroundwindextrabold"
+            android:text="홍혜린님의 감정 분석 결과"
+            android:textAlignment="center"
+            android:textSize="18sp"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="405dp"
+                android:layout_height="262dp"
+                tools:layout_editor_absoluteX="3dp"
+                tools:layout_editor_absoluteY="0dp" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="304dp"
+                android:layout_height="238dp"
+                android:layout_marginEnd="39dp"
+                android:background="#A8BDB3"
+                app:layout_constraintEnd_toEndOf="@+id/textView21"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="16dp" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="308dp"
+                android:layout_height="241dp"
+                android:layout_marginStart="51dp"
+                android:layout_marginEnd="8dp"
+                android:background="#FFFF8B"
+                app:layout_constraintEnd_toEndOf="@+id/textView13"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/textView21"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="3dp" />
+
+            <TextView
+                android:id="@+id/tvFeelingSummery"
+                android:layout_width="307dp"
+                android:layout_height="49dp"
+                android:layout_marginBottom="32dp"
+                android:fontFamily="@font/tmoneyroundwindextrabold"
+                android:text="홍혜린님은 오늘 좋은 일이 있으신가봐요.\n 저희 도원결의가 기쁨을 포착했습니다"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/ivFeeling1"
+                app:layout_constraintEnd_toEndOf="@+id/textView6"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/textView6" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="318dp"
+                android:layout_height="55dp"
+                android:layout_marginBottom="184dp"
+                android:fontFamily="@font/tmoneyroundwindextrabold"
+                android:text='"   \n                                     "'
+                android:textColor="#1B3A2C"
+                android:textSize="28sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView6"
+                app:layout_constraintEnd_toEndOf="@+id/textView13"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/textView6" />
+
+            <ImageView
+                android:id="@+id/imageprize"
+                android:layout_width="246dp"
+                android:layout_height="81dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="148dp"
+                app:layout_constraintEnd_toEndOf="@+id/textView13"
+                app:layout_constraintHorizontal_bias="0.075"
+                app:layout_constraintStart_toStartOf="@+id/textView6"
+                app:layout_constraintTop_toTopOf="@+id/textView13"
+                app:srcCompat="@drawable/prize_illustrat" />
+
+            <ImageView
+                android:id="@+id/ivFeeling2"
+                android:layout_width="73dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="96dp"
+                android:layout_marginBottom="64dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView6"
+                app:layout_constraintEnd_toStartOf="@+id/ivFeeling3"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/textView6"
+                app:layout_constraintTop_toTopOf="@+id/tvFeeling2"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/avatar_koreanman" />
+
+            <ImageView
+                android:id="@+id/ivFeeling1"
+                android:layout_width="88dp"
+                android:layout_height="91dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView6"
+                app:layout_constraintEnd_toStartOf="@+id/ivFeeling3"
+                app:layout_constraintHorizontal_bias="0.921"
+                app:layout_constraintStart_toStartOf="@+id/tvFeeling2"
+                app:layout_constraintTop_toTopOf="@+id/textView6"
+                app:layout_constraintVertical_bias="0.6"
+                app:srcCompat="@drawable/avatar_beard" />
+
+            <ImageView
+                android:id="@+id/ivFeeling3"
+                android:layout_width="50dp"
+                android:layout_height="52dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="52dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView13"
+                app:layout_constraintEnd_toEndOf="@+id/imageprize"
+                app:srcCompat="@drawable/avatar_dari" />
+
+            <TextView
+                android:id="@+id/tvFeeling1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:fontFamily="@font/tmoneyroundwindregular"
+                android:shadowColor="#024927"
+                android:text="감정1 50%"
+                android:textAllCaps="true"
+                android:textColor="#1b3a2c "
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/ivFeeling1"
+                app:layout_constraintEnd_toEndOf="@+id/tvFeelingSummery"
+                app:layout_constraintStart_toStartOf="@+id/tvFeelingSummery"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/tvFeeling2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="76dp"
+                android:fontFamily="@font/tmoneyroundwindregular"
+                android:shadowColor="#1B3A2C"
+                android:shadowDx="20"
+                android:text="감정2 20%"
+                android:textColor="#436354 "
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textView6"
+                app:layout_constraintEnd_toEndOf="@+id/tvFeeling1"
+                app:layout_constraintHorizontal_bias="0.392"
+                app:layout_constraintStart_toStartOf="@+id/tvFeelingSummery"
+                app:layout_constraintTop_toTopOf="@+id/textView13"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/tvFeeling3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="84dp"
+                android:layout_marginEnd="63dp"
+                android:fontFamily="@font/tmoneyroundwindregular"
+                android:shadowColor="#02351D"
+                android:shadowDx="10"
+                android:shadowDy="20"
+                android:text="감정3 5%"
+                android:textColor="#5D8371"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/ivFeeling3"
+                app:layout_constraintEnd_toEndOf="@+id/textView13"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/ivFeeling1"
+                app:layout_constraintTop_toTopOf="@+id/textView14"
+                app:layout_constraintVertical_bias="1.0" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+
+
+        <TextView
+            android:id="@+id/tvFaceSummery"
+            android:layout_width="343dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="0dp"
+            android:background="#ffff00 "
+            android:fontFamily="@font/tmoneyroundwindextrabold"
+            android:text="홍혜린님의 얼굴 분석 결과"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="399dp"
+                android:layout_height="373dp"
+                android:text="TextView"
+                tools:layout_editor_absoluteX="-4dp"
+                tools:layout_editor_absoluteY="-121dp" />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="316dp"
+                android:layout_height="316dp"
+                android:layout_marginStart="65dp"
+                android:layout_marginTop="144dp"
+                android:layout_marginEnd="18dp"
+                android:background="#A8BDB3"
+                app:layout_constraintEnd_toEndOf="@+id/textView22"
+                app:layout_constraintStart_toStartOf="@+id/textView22"
+                app:layout_constraintTop_toTopOf="@+id/textView26"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/textView26"
+                android:layout_width="314dp"
+                android:layout_height="447dp"
+                android:layout_marginStart="52dp"
+                android:layout_marginEnd="39dp"
+                android:background="#FFFF8B"
+                app:layout_constraintEnd_toEndOf="@+id/textView22"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/textView22"
+                tools:layout_editor_absoluteY="-120dp" />
+
+            <com.jjoe64.graphview.GraphView
+                android:id="@+id/graph"
+                android:layout_width="291dp"
+                android:layout_height="274dp"
+                android:layout_marginStart="62dp"
+                android:layout_marginTop="153dp"
+                android:layout_marginEnd="46dp"
+                android:layout_marginBottom="21dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView26"
+                app:layout_constraintEnd_toEndOf="@+id/textView22"
+                app:layout_constraintStart_toStartOf="@+id/textView22"
+                app:layout_constraintTop_toTopOf="@+id/textView22" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="" />
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="match_parent"
+            android:layout_height="95dp"
+            android:background="#6F9180"
+            android:text="" />
+    </LinearLayout>
+</ScrollView>
