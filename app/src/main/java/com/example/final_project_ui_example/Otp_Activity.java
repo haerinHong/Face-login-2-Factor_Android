@@ -78,15 +78,35 @@ public class Otp_Activity extends AppCompatActivity {
     HashMap<String, Object> input2;
     String your_otp;
      User chosun;
-    Intent loading;
+
     String user_name;
+    String user_phone;
+    String real_fake;
+
+    String feel1;
+    String feel2;
+    String feel3;
+    int feel1_state;
+    int feel2_state;
+    int feel3_state;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otp);
 
-        loading = getIntent();
+        Intent loading = getIntent();
+        real_fake = loading.getStringExtra("real_fake");
+        user_name = loading.getStringExtra("user_name");
+        user_phone = loading.getStringExtra("user_phone");
+        feel1 = loading.getStringExtra("feel1");
+        feel2 =  loading.getStringExtra("feel2");
+        feel3 = loading.getStringExtra("feel3");
+        feel1_state = loading.getIntExtra("feel1_state", 70);
+        feel2_state = loading.getIntExtra("feel2_state", 20);
+        feel3_state = loading.getIntExtra("feel3_state", 10);
+
+
         tvrRechance = (TextView)findViewById(R.id.tvrRechance);
         btnOtpSend = (ImageView)findViewById(R.id.btnOtpSend);
 
@@ -94,7 +114,7 @@ public class Otp_Activity extends AppCompatActivity {
         progressBar = findViewById(R.id.progress_circular);
         progressBar.setProgress(0);
 
-        user_name = loading.getStringExtra("name");
+
 
 
 
@@ -108,7 +128,8 @@ public class Otp_Activity extends AppCompatActivity {
 
 //        ◆◆지금은 초선이로 대체했지만 추후엔 딥러닝에서 받은 사용자의 이름과 전화번호를 받을 것,
 //        그리고 바로 전 Activity인 Loading 에서 사용자의 정보를 받는 레트로핏 통신을 추가할 예정◆◆
-        chosun = new User("초선", "01022223303");
+//        초선 "01022223303"
+        chosun = new User(user_name, user_phone);
         input = new HashMap<>();
         input.put("user_name", chosun.getUserName());
         input.put("phone", chosun.getPhone());
@@ -242,14 +263,14 @@ public class Otp_Activity extends AppCompatActivity {
                                 if (otp_res.equals("승인")) {
 
                                     Intent iflogin = new Intent(Otp_Activity.this, IfLogin.class);
-                                    iflogin.putExtra("real_fake", loading.getStringExtra("real_fake"));
+                                    iflogin.putExtra("real_fake", real_fake);
                                     iflogin.putExtra("name", user_name);
-                                    iflogin.putExtra("feel1", loading.getStringExtra("feel1"));
-                                    iflogin.putExtra("feel2", loading.getStringExtra("feel2"));
-                                    iflogin.putExtra("feel3", loading.getStringExtra("feel3"));
-                                    iflogin.putExtra("feel1_state", loading.getIntExtra("feel1_state", 70));
-                                    iflogin.putExtra("feel2_state", loading.getIntExtra("feel2_state", 20));
-                                    iflogin.putExtra("feel3_state", loading.getIntExtra("feel3_state", 10));
+                                    iflogin.putExtra("feel1", feel1);
+                                    iflogin.putExtra("feel2", feel2);
+                                    iflogin.putExtra("feel3", feel3);
+                                    iflogin.putExtra("feel1_state", feel1_state);
+                                    iflogin.putExtra("feel2_state",feel2_state);
+                                    iflogin.putExtra("feel3_state", feel3_state);
                                     startActivity(iflogin);
 //                                    Toast.makeText(Otp_Activity.this, "인증에 성공했습니다! \n 초선님, 반갑습니다 ", Toast.LENGTH_SHORT).show();
 

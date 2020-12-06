@@ -136,24 +136,36 @@ public class VideoActivity extends AppCompatActivity {
                                 JSONObject jsonObject = new JSONObject(videoresult);
 
                                 String real_fake = jsonObject.getString("real_fake");
-                                String name = jsonObject.getString("name");
+                                String user_name = jsonObject.getString("name");
                                 String feel1 = jsonObject.getString("feel1");
                                 String feel2 = jsonObject.getString("feel2");
                                 String feel3 = jsonObject.getString("feel3");
+                                String user_phone = jsonObject.getString("phone");
                                 int feel1_state = jsonObject.getInt("feel1_state");
                                 int feel2_state = jsonObject.getInt("feel2_state");
                                 int feel3_state = jsonObject.getInt("feel3_state");
 
-                                Log.d("VideoActivity", "real_fake = "+ real_fake + " name = "+ name + " 1 =  " + feel1 + " 2 =  "+ feel2 + " 3 = "+ feel3);
+                                Log.d("VideoActivity", "real_fake = "+ real_fake + " name = "+ user_name + " phone " + user_phone + " 1 =  " + feel1 + " 2 =  "+ feel2 + " 3 = "+ feel3);
                                 Log.d("VideoActivity", "feel1 = "+ feel1_state + " feel2 = "+ feel2_state + " feel3_state " + feel3_state);
+
+                                Intent otp_intent = new Intent(VideoActivity.this, Otp_Activity.class);
+                                otp_intent.putExtra("user_name", user_name);
+                                otp_intent.putExtra("user_phone", user_phone);
+                                otp_intent.putExtra("feel1", feel1);
+                                otp_intent.putExtra("feel2", feel2);
+                                otp_intent.putExtra("feel3", feel3);
+                                otp_intent.putExtra("feel1_state", feel1_state);
+                                otp_intent.putExtra("feel2_state", feel2_state);
+                                otp_intent.putExtra("feel3_state", feel3_state);
+
+                                startActivity(otp_intent);
 
                             } catch (IOException | JSONException e) {
                                 e.printStackTrace();
                             }
 
 
-                            Intent loading_intent = new Intent(VideoActivity.this, Loading_Activity.class);
-                            startActivity(loading_intent);
+
                         }
 
                         @Override

@@ -23,58 +23,68 @@
 
         <TextView
             android:id="@+id/textView10"
-            android:layout_width="413dp"
-            android:layout_height="186dp"
-            android:layout_marginTop="44dp"
+            android:layout_width="766dp"
+            android:layout_height="118dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="1044dp"
+            android:layout_marginBottom="88dp"
             android:background="#709281"
             android:textSize="120sp"
-            app:layout_constraintTop_toBottomOf="@+id/textView12"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="0dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/textView12"
-            android:layout_width="343dp"
-            android:layout_height="936dp"
-            android:layout_marginTop="24dp"
+            android:layout_width="510dp"
+            android:layout_height="888dp"
+            android:layout_marginTop="72dp"
             android:layout_marginEnd="34dp"
             android:background="#FFFFFF"
             android:gravity="center"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.638"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/round_profile"
             android:layout_width="159dp"
             android:layout_height="140dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="72dp"
             android:src="@drawable/avatar_me"
             app:layout_constraintEnd_toEndOf="@+id/tvFeelingResultYellow"
-            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintHorizontal_bias="0.51"
             app:layout_constraintStart_toStartOf="@+id/tvFeelingResultYellow"
-            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvWelcome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="256dp"
+            android:layout_marginTop="220dp"
+            android:layout_marginEnd="267dp"
+            android:layout_marginBottom="986dp"
             android:fontFamily="@font/tmoneyroundwindregular"
             android:text="홍혜린님, 환영합니다"
             android:textAlignment="center"
             android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="@+id/textView14"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.484"
-            app:layout_constraintStart_toStartOf="@+id/textView14"
-            app:layout_constraintTop_toBottomOf="@+id/round_profile"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/tvFeelingResultYellow"
             android:layout_width="343dp"
-            android:layout_height="32dp"
+            android:layout_height="36dp"
             android:background="#ffff00 "
             android:fontFamily="@font/tmoneyroundwindextrabold"
             android:text="홍혜린님의 감정 분석 결과"
@@ -82,21 +92,23 @@
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/tvFeelingSummery"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.514"
+            app:layout_constraintHorizontal_bias="0.524"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvWelcome"
-            app:layout_constraintVertical_bias="0.424"
+            app:layout_constraintVertical_bias="0.437"
             tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/textView13"
-            android:layout_width="304dp"
-            android:layout_height="229dp"
-            android:layout_marginStart="64dp"
+            android:layout_width="341dp"
+            android:layout_height="252dp"
+            android:layout_marginStart="232dp"
             android:layout_marginTop="306dp"
+            android:layout_marginEnd="195dp"
             android:layout_marginBottom="692dp"
             android:background="#A8BDB3"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
@@ -104,15 +116,17 @@
 
         <TextView
             android:id="@+id/textView6"
-            android:layout_width="306dp"
-            android:layout_height="234dp"
-            android:layout_marginEnd="19dp"
-            android:layout_marginBottom="4dp"
+            android:layout_width="340dp"
+            android:layout_height="248dp"
+            android:layout_marginStart="223dp"
+            android:layout_marginTop="300dp"
+            android:layout_marginEnd="205dp"
+            android:layout_marginBottom="702dp"
             android:background="#FFFF8B"
-            app:layout_constraintBottom_toBottomOf="@+id/textView13"
-            app:layout_constraintEnd_toEndOf="@+id/textView13"
-            app:layout_constraintHorizontal_bias="0.476"
-            app:layout_constraintStart_toStartOf="@+id/textView13"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
 
         <TextView
@@ -130,8 +144,8 @@
 
         <TextView
             android:id="@+id/tvFeelingSummery"
-            android:layout_width="307dp"
-            android:layout_height="49dp"
+            android:layout_width="308dp"
+            android:layout_height="57dp"
             android:layout_marginTop="240dp"
             android:fontFamily="@font/tmoneyroundwindextrabold"
             android:text="홍혜린님은 오늘 좋은 일이 있으신가봐요.\n 저희 도원결의가 기쁨을 포착했습니다"
@@ -139,11 +153,11 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/imageView7"
             app:layout_constraintEnd_toEndOf="@+id/tvFeelingResultYellow"
-            app:layout_constraintHorizontal_bias="0.583"
+            app:layout_constraintHorizontal_bias="0.571"
             app:layout_constraintStart_toStartOf="@+id/tvFeelingResultYellow"
             app:layout_constraintTop_toTopOf="@+id/textView12"
             app:layout_constraintVertical_bias="0.0"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="MissingConstraints,UnknownId" />
 
         <ImageView
             android:id="@+id/imageprize"
@@ -155,8 +169,10 @@
             android:layout_marginBottom="634dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.515"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.55"
             app:srcCompat="@drawable/prize_illustrat"
             tools:ignore="MissingConstraints" />
 
@@ -164,13 +180,15 @@
             android:id="@+id/ivFeeling2"
             android:layout_width="73dp"
             android:layout_height="70dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginStart="273dp"
+            android:layout_marginTop="410dp"
             android:layout_marginEnd="96dp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView6"
+            android:layout_marginBottom="770dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/ivFeeling3"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/textView6"
-            app:layout_constraintTop_toTopOf="@+id/tvFeeling2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/avatar_koreanman" />
 
@@ -178,12 +196,17 @@
             android:id="@+id/ivFeeling1"
             android:layout_width="88dp"
             android:layout_height="91dp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView6"
+            android:layout_marginStart="352dp"
+            android:layout_marginTop="382dp"
+            android:layout_marginEnd="326dp"
+            android:layout_marginBottom="738dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/ivFeeling3"
-            app:layout_constraintHorizontal_bias="0.869"
-            app:layout_constraintStart_toStartOf="@+id/tvFeeling2"
-            app:layout_constraintTop_toTopOf="@+id/textView6"
-            app:layout_constraintVertical_bias="0.524"
+            app:layout_constraintHorizontal_bias="0.021"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/avatar_beard" />
 
         <ImageView
@@ -196,8 +219,10 @@
             android:layout_marginBottom="756dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.515"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.4"
             app:srcCompat="@drawable/avatar_dari" />
 
         <TextView
@@ -216,30 +241,31 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.75"
             tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/tvFeeling2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="55dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="96dp"
-            android:layout_marginBottom="132dp"
+            android:layout_marginStart="57dp"
+            android:layout_marginTop="90dp"
+            android:layout_marginEnd="224dp"
+            android:layout_marginBottom="195dp"
             android:fontFamily="@font/tmoneyroundwindregular"
             android:shadowColor="#1B3A2C"
             android:shadowDx="20"
             android:text="감정2 20%"
-            android:textColor="#436354 "
+            android:textColor="#31473C"
             android:textSize="12sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/textView13"
-            app:layout_constraintEnd_toEndOf="@+id/tvFeeling1"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/textView12"
-            app:layout_constraintTop_toTopOf="@+id/imageprize" />
+            app:layout_constraintBottom_toBottomOf="@+id/imageprize"
+            app:layout_constraintEnd_toEndOf="@+id/textView6"
+            app:layout_constraintStart_toStartOf="@+id/textView6"
+            app:layout_constraintTop_toTopOf="@+id/textView6" />
 
         <TextView
             android:id="@+id/tvFeeling3"
@@ -254,19 +280,19 @@
             android:shadowDx="10"
             android:shadowDy="20"
             android:text="감정3 5%"
-            android:textColor="#5D8371"
-            android:textSize="10sp"
+            android:textColor="#2F453B"
+            android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.515"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/tvFaceSummery"
-            android:layout_width="340dp"
+            android:layout_width="343dp"
             android:layout_height="36dp"
             android:layout_marginStart="35dp"
             android:layout_marginTop="597dp"
@@ -279,48 +305,55 @@
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.508"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/textView19"
-            android:layout_width="295dp"
-            android:layout_height="289dp"
-            android:layout_marginStart="19dp"
-            android:layout_marginTop="590dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="57dp"
+            android:layout_width="334dp"
+            android:layout_height="276dp"
+            android:layout_marginStart="238dp"
+            android:layout_marginTop="641dp"
+            android:layout_marginEnd="196dp"
+            android:layout_marginBottom="333dp"
             android:background="#A8BDB3"
-            app:layout_constraintBottom_toBottomOf="@+id/textView12"
-            app:layout_constraintEnd_toEndOf="@+id/textView12"
-            app:layout_constraintStart_toStartOf="@+id/textView26"
-            app:layout_constraintTop_toTopOf="@+id/textView12" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/textView26"
-            android:layout_width="303dp"
-            android:layout_height="284dp"
-            android:layout_marginStart="19dp"
-            android:layout_marginEnd="21dp"
-            android:layout_marginBottom="76dp"
+            android:layout_width="341dp"
+            android:layout_height="273dp"
+            android:layout_marginStart="218dp"
+            android:layout_marginTop="633dp"
+            android:layout_marginEnd="209dp"
+            android:layout_marginBottom="344dp"
             android:background="#FFFF8B"
-            app:layout_constraintBottom_toBottomOf="@+id/textView12"
-            app:layout_constraintEnd_toEndOf="@+id/textView12"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/textView12" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
 
         <com.jjoe64.graphview.GraphView
             android:id="@+id/graph"
-            android:layout_width="280dp"
-            android:layout_height="258dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="17dp"
-            android:layout_marginEnd="13dp"
-            android:layout_marginBottom="9dp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView26"
-            app:layout_constraintEnd_toEndOf="@+id/textView26"
-            app:layout_constraintStart_toStartOf="@+id/textView26"
-            app:layout_constraintTop_toTopOf="@+id/textView26" />
+            android:layout_width="282dp"
+            android:layout_height="236dp"
+            android:layout_marginStart="260dp"
+            android:layout_marginTop="656dp"
+            android:layout_marginEnd="222dp"
+            android:layout_marginBottom="355dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
