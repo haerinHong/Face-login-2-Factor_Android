@@ -30,40 +30,32 @@
 
     <TextView
         android:id="@+id/textView12"
-        android:layout_width="336dp"
-        android:layout_height="354dp"
-        android:layout_marginStart="212dp"
-        android:layout_marginTop="176dp"
-        android:layout_marginEnd="220dp"
-        android:layout_marginBottom="248dp"
+        android:layout_width="373dp"
+        android:layout_height="367dp"
         android:background="#FFFFFF"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.211" />
+        app:layout_constraintEnd_toStartOf="@+id/ivGoHome"
+        app:layout_constraintHorizontal_bias="0.689"
+        app:layout_constraintStart_toStartOf="@+id/textView9"
+        app:layout_constraintTop_toTopOf="@+id/textView11"
+        app:layout_constraintVertical_bias="0.114" />
 
     <TextView
         android:id="@+id/textView11"
-        android:layout_width="336dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="73dp"
-        android:layout_marginTop="186dp"
-        android:layout_marginEnd="76dp"
-        android:layout_marginBottom="796dp"
+        android:layout_width="373dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="148dp"
         android:background="#C7CC00"
         android:gravity="center"
         android:text="     2차 인증 OTP"
         android:textAlignment="textStart"
         android:textColor="#1B3A2C"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <com.view.circulartimerview.CircularTimerView
         android:id="@+id/progress_circular"
@@ -93,10 +85,7 @@
         style="@style/PinWidget.PinView"
         android:layout_width="324dp"
         android:layout_height="61dp"
-        android:layout_marginStart="222dp"
-        android:layout_marginTop="325dp"
-        android:layout_marginEnd="111dp"
-        android:layout_marginBottom="567dp"
+        android:layout_marginBottom="108dp"
         android:hint="123456"
         android:inputType="number"
         android:itemBackground="@mipmap/ic_launcher"
@@ -111,25 +100,21 @@
         app:itemRadius="4dp"
         app:itemSpacing="0dp"
         app:itemWidth="48dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintBottom_toTopOf="@+id/btnOtpSend"
         app:lineColor="#446455"
         app:lineWidth="2dp"
-        app:viewType="rectangle" />
+        app:viewType="rectangle"
+        tools:layout_editor_absoluteX="198dp" />
 
     <ImageView
         android:id="@+id/btnOtpSend"
         android:layout_width="96dp"
         android:layout_height="72dp"
         android:layout_marginStart="122dp"
-        android:layout_marginTop="284dp"
+        android:layout_marginTop="292dp"
         android:layout_marginEnd="118dp"
         app:layout_constraintEnd_toEndOf="@+id/textView12"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.432"
         app:layout_constraintStart_toStartOf="@+id/textView12"
         app:layout_constraintTop_toTopOf="@+id/textView12"
         app:srcCompat="@drawable/send_logo2" />
@@ -141,9 +126,38 @@
         android:text="재전송"
         app:layout_constraintBottom_toTopOf="@+id/btnOtpSend"
         app:layout_constraintEnd_toStartOf="@+id/progress_circular"
-        app:layout_constraintHorizontal_bias="0.04"
-        app:layout_constraintStart_toStartOf="@+id/textView12"
+        app:layout_constraintHorizontal_bias="0.448"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/secondPinView"
-        app:layout_constraintVertical_bias="0.623" />
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/ivGoBack"
+        android:layout_width="107dp"
+        android:layout_height="115dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="683dp"
+        android:layout_marginEnd="654dp"
+        android:layout_marginBottom="226dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/go_back" />
+
+    <ImageView
+        android:id="@+id/ivGoHome"
+        android:layout_width="108dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="683dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginBottom="885dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/go_home" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

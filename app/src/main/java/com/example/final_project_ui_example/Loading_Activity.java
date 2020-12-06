@@ -36,18 +36,6 @@ public class Loading_Activity extends Activity {
     public final static int LOADING = 560;
     String videopath;
 
-    String now_Time;
-    Retrofit retrofit;
-    GitHubService service;
-    int CODE = -1;
-    String real_fake ="";
-    String name = "";
-    String feel1 = "";
-    String feel2 = "";
-    String feel3 = "";
-    int feel1_state = -1;
-    int feel2_state = -1;
-    int feel3_state = -1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

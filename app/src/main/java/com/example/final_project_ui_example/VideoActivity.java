@@ -66,6 +66,8 @@ public class VideoActivity extends AppCompatActivity {
     HashMap<String, Object> input;
 
     Uri videoUri;
+    ImageView ivGoBack;
+    ImageView ivGoHome;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +80,22 @@ public class VideoActivity extends AppCompatActivity {
         iv_photo = (ImageView)findViewById(R.id.iv_photo);
 
         iv_photo.bringToFront();
+
+        ivGoBack = (ImageView)findViewById(R.id.ivGoVideoBack);
+        ivGoHome = (ImageView)findViewById(R.id.ivGoVideoHome);
+
+        ivGoBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+        ivGoHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(VideoActivity.this, MainActivity.class));
+            }
+        });
 
         takeVideo.setOnClickListener(new View.OnClickListener() {
             @Override

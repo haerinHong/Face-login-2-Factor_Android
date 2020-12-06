@@ -89,6 +89,8 @@ public class Otp_Activity extends AppCompatActivity {
     int feel1_state;
     int feel2_state;
     int feel3_state;
+    ImageView ivGoBack;
+    ImageView ivGoHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,10 +115,22 @@ public class Otp_Activity extends AppCompatActivity {
         button = (ImageView)findViewById(R.id.btnOtpSend);
         progressBar = findViewById(R.id.progress_circular);
         progressBar.setProgress(0);
+        ivGoBack = (ImageView)findViewById(R.id.ivGoBack);
+        ivGoHome = (ImageView)findViewById(R.id.ivGoHome);
 
 
-
-
+        ivGoBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+        ivGoHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Otp_Activity.this, MainActivity.class));
+            }
+        });
 
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -372,7 +386,7 @@ public class Otp_Activity extends AppCompatActivity {
                 });
                 dlg.show();
             }
-        }, 120, TimeFormatEnum.SECONDS, 10);
+        }, 180, TimeFormatEnum.SECONDS, 10);
 
 
 // To start timer

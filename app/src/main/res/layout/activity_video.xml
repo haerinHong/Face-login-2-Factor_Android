@@ -124,5 +124,32 @@
             app:layout_constraintEnd_toEndOf="@+id/iv_photo"
             app:layout_constraintStart_toStartOf="@+id/iv_photo"
             app:layout_constraintTop_toTopOf="@+id/iv_photo" />
+
+        <ImageView
+            android:id="@+id/ivGoVideoBack"
+            android:layout_width="89dp"
+            android:layout_height="57dp"
+            android:layout_marginTop="556dp"
+            android:layout_marginEnd="679dp"
+            android:layout_marginBottom="184dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/go_back" />
+
+        <ImageView
+            android:id="@+id/ivGoVideoHome"
+            android:layout_width="104dp"
+            android:layout_height="61dp"
+            android:layout_marginStart="575dp"
+            android:layout_marginTop="63dp"
+            android:layout_marginEnd="89dp"
+            android:layout_marginBottom="673dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/go_home" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
