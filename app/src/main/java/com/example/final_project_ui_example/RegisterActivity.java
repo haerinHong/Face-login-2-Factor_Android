@@ -61,6 +61,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sdsmdg.tastytoast.TastyToast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -69,6 +72,10 @@ import java.util.HashMap;
 import java.util.List;
 
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -257,10 +264,8 @@ public class RegisterActivity extends AppCompatActivity {
                             Manifest.permission.WRITE_EXTERNAL_STORAGE
                     },
                     REQUEST_PERMISSION);
-
             return true;
         }
-
         return false;
     }
 
@@ -300,6 +305,14 @@ public class RegisterActivity extends AppCompatActivity {
                 break;
 
             case R.id.btnRegister: // db연결, 추가 후, Toast로 띄워준다.
+                long now = System.currentTimeMillis();
+                Date date = new Date(now);
+                SimpleDateFormat nowTime = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
+                String now_Time = nowTime.format(date);
+
+                File videoFile = new File(getPath(videoUri));
+                RequestBody reqFile = RequestBody.create(MediaType.parse("video/*"), videoFile);
+                MultipartBody.Part video_body = MultipartBody.Part.createFormData("upload", now_Time, reqFile);
 
 //                ◆◆Retrofit Post 연결◆◆
                 String input_name = etName.getText().toString();
@@ -310,19 +323,26 @@ public class RegisterActivity extends AppCompatActivity {
                 input.put("user_name", chosun.getUserName());
                 input.put("phone", chosun.getPhone());
 
+                RequestBody req_name = RequestBody.create(MediaType.parse("text/plain"),chosun.getUserName());
+                RequestBody req_phone = RequestBody.create(MediaType.parse("text/plain"),chosun.getPhone());
+                MultipartBody.Part multi_user_name = MultipartBody.Part.createFormData("user_name", now_Time, req_name);
+                MultipartBody.Part multi_user_phone = MultipartBody.Part.createFormData("phone", now_Time, req_phone);
                 try {
-                    service.postPeople("register/", input).enqueue(new Callback<User>() {
+                    Call<ResponseBody> req = service.postPeople(video_body, multi_user_name, multi_user_phone);
+                    req.enqueue(new Callback<ResponseBody>() {
                         @Override
-                        public void onResponse(Call<User> call, Response<User> response) {
-                            if(response.isSuccessful()) {
-                                Log.d("RegisterActivity", "접속 성공\n" + response.raw());
-                                User postMessages= response.body();
-                                Log.d("RegisterActivity" , "Retrofit2 Test : "+postMessages.getMessage());
+                        public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                            Log.d("RegisterActivity", "접속 성공\n" + response.raw());
 
-//                                제대로 회원가입 했는지 여부
-                                String register_res = postMessages.getMessage();
+                            String registerresult = null;
+                            try {
+                                registerresult = response.body().string();
+                                Log.d("RegisterActivity", "response.body()string()\n"+ registerresult);
+                                JSONObject jsonObject = new JSONObject(registerresult);
+                                String register_final_result = jsonObject.getString("message");
+                                Log.d("VideoActivity", " register_final_result = " + register_final_result );
 
-                                if (register_res.equals("등록 성공")) {
+                                if (register_final_result.equals("등록 완료")) {
                                     Intent register_intent = new Intent();
                                     register_intent.putExtra("name", etName.getText().toString());
                                     register_intent.putExtra("phone", etPhone.getText().toString());
@@ -334,15 +354,15 @@ public class RegisterActivity extends AppCompatActivity {
                                     Log.d("RegisterActivity", "접속은 했지만 등록은 실패" + response.raw());
                                 }
 
+                            } catch (IOException | JSONException e) {
+                                Log.d("RegisterActivity", "접속은 했지만 등록은 실패" + response.raw());
+                                e.printStackTrace();
+
                             }
                         }
 
                         @Override
-                        public void onFailure(Call<User> call, Throwable t) {
-                            Log.e("RegisterActivity" + "실패1",t.getMessage());
-                            Log.e("RegisterActivity",t.getStackTrace().toString());
-
-//                            등록 실패시 AlertDialog를 띄워주는 함수
+                        public void onFailure(Call<ResponseBody> call, Throwable t) {
                             registerfail(1);
                         }
                     });

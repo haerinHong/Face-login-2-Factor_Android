@@ -12,6 +12,7 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.http.Body;
+import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.HTTP;
@@ -47,14 +48,23 @@ public interface GitHubService {
     Call<ResponseBody> postVideo(
             @Part MultipartBody.Part image);
 
+//
 
-//            @Query("imagefile") String imagefile
 
+    //@Multipart
+//@PUT("user/photo")
+//Call<User> updateUser(@Part("photo") RequestBody photo, @Part("description") RequestBody description);
+//
 
-    @POST("{register}")
-    Call<User> postPeople(
-            @Path("register") String register,
-            @Body HashMap<String, Object> param
+//    Call<User> postPeople(
+//            @Body HashMap<String, Object> param,
+//            @Part MultipartBody.Part image
+    @Multipart
+    @POST("register/")
+    Call<ResponseBody> postPeople (
+            @Part MultipartBody.Part image,
+            @Part MultipartBody.Part user_name,
+            @Part MultipartBody.Part phone
     );
 //  안돌아가 이거ㅜㅜ
 //    @GET("{register_get}")

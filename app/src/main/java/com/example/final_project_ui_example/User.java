@@ -3,6 +3,8 @@ package com.example.final_project_ui_example;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import okhttp3.RequestBody;
+
 public class User {
     @Expose
     @SerializedName("user_name")
