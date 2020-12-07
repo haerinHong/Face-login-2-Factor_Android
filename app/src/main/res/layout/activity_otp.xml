@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#446455"
+    android:background="#FFFFFF"
     android:backgroundTint="#446455"
+    android:layout_height="match_parent"
     tools:context=".Activity_otpotp">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#436354">
     <TextView
         android:id="@+id/textView9"
         android:layout_width="764dp"
@@ -28,36 +34,38 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="373dp"
-        android:layout_height="367dp"
-        android:background="#FFFFFF"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/ivGoHome"
-        app:layout_constraintHorizontal_bias="0.689"
-        app:layout_constraintStart_toStartOf="@+id/textView9"
-        app:layout_constraintTop_toTopOf="@+id/textView11"
-        app:layout_constraintVertical_bias="0.114" />
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="373dp"
+            android:layout_height="367dp"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ivGoHome"
+            app:layout_constraintHorizontal_bias="0.641"
+            app:layout_constraintStart_toStartOf="@+id/textView9"
+            app:layout_constraintTop_toBottomOf="@+id/textView11"
+            app:layout_constraintVertical_bias="0.013" />
 
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="373dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="148dp"
-        android:background="#C7CC00"
-        android:gravity="center"
-        android:text="     2차 인증 OTP"
-        android:textAlignment="textStart"
-        android:textColor="#1B3A2C"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="373dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="92dp"
+            android:background="#C7CC00"
+            android:gravity="center"
+            android:text="     2차 인증 OTP"
+            android:textAlignment="textStart"
+            android:textColor="#1B3A2C"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/ivGoBack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.465"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView9"
+            app:layout_constraintVertical_bias="0.078" />
 
-    <com.view.circulartimerview.CircularTimerView
+        <com.view.circulartimerview.CircularTimerView
         android:id="@+id/progress_circular"
         android:layout_width="86dp"
         android:layout_height="80dp"
@@ -101,10 +109,12 @@
         app:itemSpacing="0dp"
         app:itemWidth="48dp"
         app:layout_constraintBottom_toTopOf="@+id/btnOtpSend"
+        app:layout_constraintEnd_toStartOf="@+id/ivGoHome"
+        app:layout_constraintStart_toEndOf="@+id/ivGoBack"
+        app:layout_constraintTop_toTopOf="@+id/textView12"
         app:lineColor="#446455"
         app:lineWidth="2dp"
-        app:viewType="rectangle"
-        tools:layout_editor_absoluteX="198dp" />
+        app:viewType="rectangle" />
 
     <ImageView
         android:id="@+id/btnOtpSend"
@@ -119,19 +129,19 @@
         app:layout_constraintTop_toTopOf="@+id/textView12"
         app:srcCompat="@drawable/send_logo2" />
 
-    <TextView
-        android:id="@+id/tvrRechance"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="재전송"
-        app:layout_constraintBottom_toTopOf="@+id/btnOtpSend"
-        app:layout_constraintEnd_toStartOf="@+id/progress_circular"
-        app:layout_constraintHorizontal_bias="0.448"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/secondPinView"
-        app:layout_constraintVertical_bias="0.0" />
+        <TextView
+            android:id="@+id/tvrRechance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="재전송"
+            app:layout_constraintBottom_toTopOf="@+id/btnOtpSend"
+            app:layout_constraintEnd_toStartOf="@+id/progress_circular"
+            app:layout_constraintHorizontal_bias="0.513"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/secondPinView"
+            app:layout_constraintVertical_bias="0.34" />
 
-    <ImageView
+        <ImageView
         android:id="@+id/ivGoBack"
         android:layout_width="107dp"
         android:layout_height="115dp"
@@ -161,3 +171,4 @@
         app:srcCompat="@drawable/go_home" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
