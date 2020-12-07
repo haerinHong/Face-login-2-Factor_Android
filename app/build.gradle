@@ -3,6 +3,10 @@ apply plugin: 'com.google.gms.google-services'
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.0"
+    adbOptions {
+            timeOutInMs 30 * 1000
+    }
+
 
     defaultConfig {
         applicationId "com.example.final_project_ui_example"

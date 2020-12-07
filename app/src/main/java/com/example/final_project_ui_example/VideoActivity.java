@@ -139,7 +139,7 @@ public class VideoActivity extends AppCompatActivity {
                 File videoFile = new File(getPath(videoUri));
                 RequestBody reqFile = RequestBody.create(MediaType.parse("video/*"), videoFile);
                 MultipartBody.Part body = MultipartBody.Part.createFormData("upload", now_Time, reqFile);
-
+                Log.d("VideoActivity", "접속 직전");
                 try {
                     Call<ResponseBody> req = service.postVideo(body);
                     req.enqueue(new Callback<ResponseBody>() {
