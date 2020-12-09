@@ -151,7 +151,7 @@ public class Otp_Activity extends AppCompatActivity {
         tvrRechance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(Otp_Activity.this,"재전송을 누르셨습니다.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Otp_Activity.this,"고객님의 OTP는 "+tvrRechance.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
 //
@@ -183,7 +183,7 @@ public class Otp_Activity extends AppCompatActivity {
                         });
                         dlg.show();
 
-//                        tvotpView.setText(your_otp);
+                        tvrRechance.setText(your_otp);
                     }
                 }
 
@@ -322,7 +322,7 @@ public class Otp_Activity extends AppCompatActivity {
                 progressBar.setPrefix("");
                 progressBar.setSuffix("");
                 progressBar.setText("시간 종료");
-
+                tvrRechance.setText("시간 종료");
                 AlertDialog.Builder dlg = new AlertDialog.Builder(Otp_Activity.this);
                 dlg.setTitle("OTP 입력 시간 종료"); //제목
                 dlg.setMessage("OTP 재전송시 확인을 누르시오"); // 메시지
@@ -355,6 +355,7 @@ public class Otp_Activity extends AppCompatActivity {
                                         });
                                         dlg.show();
 //                                        다시 재시작
+                                        tvrRechance.setText(your_otp);
                                         progressBar.startTimer();
 //                                        tvotpView.setText(your_otp);
                                     }

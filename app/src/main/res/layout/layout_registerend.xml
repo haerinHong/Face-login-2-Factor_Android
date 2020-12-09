@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="#FFFFFF"
+    android:backgroundTint="#446455"
+    tools:context=".VideoActivity"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#436354">
+
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="1280dp"
+            android:layout_height="183dp"
+            android:layout_marginTop="84dp"
+            android:background="#709281"
+            android:textSize="120sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView11"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="@+id/textView11"
+            app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="335dp"
+            android:layout_height="354dp"
+            android:layout_marginTop="176dp"
+            android:layout_marginBottom="248dp"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="336dp"
+            android:layout_height="42dp"
+            android:background="#C7CC00"
+            android:fontFamily="@font/tmoneyroundwindextrabold"
+            android:gravity="center"
+            android:text="    회원가입 완료"
+            android:textColor="#1B3A2C"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/textView12"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="1276dp"
+            android:layout_height="63dp"
+            android:layout_marginBottom="80dp"
+            android:background="#1B3A2C"
+            app:layout_constraintBottom_toTopOf="@+id/textView11"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="326dp"
+            android:layout_height="302dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView12"
+            app:layout_constraintEnd_toEndOf="@+id/textView12"
+            app:layout_constraintHorizontal_bias="0.977"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView12"
+            app:layout_constraintVertical_bias="0.423"
+            app:srcCompat="@drawable/thinking_our_ideas" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/tmoneyroundwindextrabold"
+            android:text="회원가입이 완료되었습니다"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/btnRegisterGoHome"
+            app:layout_constraintEnd_toEndOf="@+id/textView12"
+            app:layout_constraintHorizontal_bias="0.487"
+            app:layout_constraintStart_toStartOf="@+id/textView12"
+            app:layout_constraintTop_toTopOf="@+id/imageView3"
+            app:layout_constraintVertical_bias="0.863" />
+
+        <Button
+            android:id="@+id/btnRegisterGoHome"
+            android:layout_width="245dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="262dp"
+            android:layout_marginTop="543dp"
+            android:layout_marginEnd="261dp"
+            android:layout_marginBottom="184dp"
+            android:background="@drawable/radius2"
+            android:fontFamily="@font/tmoneyroundwindextrabold"
+            android:onClick="onRegisterEnd"
+            android:text="홈으로 가기"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

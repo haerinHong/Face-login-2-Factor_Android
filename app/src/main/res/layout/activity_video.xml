@@ -80,7 +80,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="265dp"
             android:layout_marginBottom="20dp"
-            android:text="TAKE A PHOTO"
+            android:text="TAKE A VIDEO"
             app:layout_constraintBottom_toBottomOf="@+id/textView12"
             app:layout_constraintEnd_toStartOf="@+id/btn_send"
             app:layout_constraintHorizontal_bias="0.346"

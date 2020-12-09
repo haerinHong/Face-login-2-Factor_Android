@@ -68,6 +68,17 @@ public class VideoActivity extends AppCompatActivity {
     Uri videoUri;
     ImageView ivGoBack;
     ImageView ivGoHome;
+
+    String real_fake;
+    String name;
+    String phone;
+    String feel1;
+    String feel2;
+    String feel3;
+
+    int feel1_state;
+    int feel2_state;
+    int feel3_state;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -129,6 +140,7 @@ public class VideoActivity extends AppCompatActivity {
     public void onVideoClick(View view) {
         switch (view.getId()) {
             case R.id.btnVideoOk:
+//                로그인 SEND 버튼 클릭시 수행
                 service = retrofit.create(GitHubService.class);
 
                 long now = System.currentTimeMillis();
@@ -136,10 +148,11 @@ public class VideoActivity extends AppCompatActivity {
                 SimpleDateFormat nowTime = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
                 String now_Time = nowTime.format(date);
 
+//                File videoFile = new File(getPath(videoUri));
                 File videoFile = new File(getPath(videoUri));
                 RequestBody reqFile = RequestBody.create(MediaType.parse("video/*"), videoFile);
                 MultipartBody.Part body = MultipartBody.Part.createFormData("upload", now_Time, reqFile);
-                Log.d("VideoActivity", "접속 직전");
+
                 try {
                     Call<ResponseBody> req = service.postVideo(body);
                     req.enqueue(new Callback<ResponseBody>() {
@@ -153,22 +166,26 @@ public class VideoActivity extends AppCompatActivity {
                                 Log.d("VideoActivity", "response.body()string()\n"+ videoresult);
                                 JSONObject jsonObject = new JSONObject(videoresult);
 
-                                String real_fake = jsonObject.getString("real_fake");
-                                String user_name = jsonObject.getString("name");
-                                String feel1 = jsonObject.getString("feel1");
-                                String feel2 = jsonObject.getString("feel2");
-                                String feel3 = jsonObject.getString("feel3");
-                                String user_phone = jsonObject.getString("phone");
-                                int feel1_state = jsonObject.getInt("feel1_state");
-                                int feel2_state = jsonObject.getInt("feel2_state");
-                                int feel3_state = jsonObject.getInt("feel3_state");
+                                real_fake = jsonObject.getString("real_fake");
+                                name = jsonObject.getString("name");
+                                phone = jsonObject.getString("phone");
+                                feel1 = jsonObject.getString("feel1");
+                                feel2 = jsonObject.getString("feel2");
+                                feel3 = jsonObject.getString("feel3");
+                                feel1_state = jsonObject.getInt("feel1_state");
+                                feel2_state = jsonObject.getInt("feel2_state");
+                                feel3_state = jsonObject.getInt("feel3_state");
 
-                                Log.d("VideoActivity", "real_fake = "+ real_fake + " name = "+ user_name + " phone " + user_phone + " 1 =  " + feel1 + " 2 =  "+ feel2 + " 3 = "+ feel3);
+                                Log.d("VideoActivity", "real_fake = "+ real_fake + " name = "+ name + " 1 =  " + feel1 + " 2 =  "+ feel2 + " 3 = "+ feel3);
                                 Log.d("VideoActivity", "feel1 = "+ feel1_state + " feel2 = "+ feel2_state + " feel3_state " + feel3_state);
 
+                            } catch (IOException | JSONException e) {
+                                e.printStackTrace();
+                            }
+                            if (!name.equals("who_plus_phone[0]") && !phone.equals("who_plus_phone[1]")) {
                                 Intent otp_intent = new Intent(VideoActivity.this, Otp_Activity.class);
-                                otp_intent.putExtra("user_name", user_name);
-                                otp_intent.putExtra("user_phone", user_phone);
+                                otp_intent.putExtra("user_name", name);
+                                otp_intent.putExtra("user_phone", phone);
                                 otp_intent.putExtra("feel1", feel1);
                                 otp_intent.putExtra("feel2", feel2);
                                 otp_intent.putExtra("feel3", feel3);
@@ -177,12 +194,7 @@ public class VideoActivity extends AppCompatActivity {
                                 otp_intent.putExtra("feel3_state", feel3_state);
 
                                 startActivity(otp_intent);
-
-                            } catch (IOException | JSONException e) {
-                                e.printStackTrace();
                             }
-
-
 
                         }
 

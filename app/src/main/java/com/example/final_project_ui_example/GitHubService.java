@@ -42,23 +42,12 @@ public interface GitHubService {
             @Body HashMap<String, Object> param
 //            @Query("imagefile") String imagefile
     );
-
+// 로그인시 비디오 전송
     @Multipart
     @POST("img_test/")
     Call<ResponseBody> postVideo(
             @Part MultipartBody.Part image);
-
-//
-
-
-    //@Multipart
-//@PUT("user/photo")
-//Call<User> updateUser(@Part("photo") RequestBody photo, @Part("description") RequestBody description);
-//
-
-//    Call<User> postPeople(
-//            @Body HashMap<String, Object> param,
-//            @Part MultipartBody.Part image
+//    회원가입
     @Multipart
     @POST("register/")
     Call<ResponseBody> postPeople (
@@ -66,18 +55,8 @@ public interface GitHubService {
             @Part MultipartBody.Part user_name,
             @Part MultipartBody.Part phone
     );
-//  안돌아가 이거ㅜㅜ
-//    @GET("{register_get}")
-//    Call<List<User>> getPeople(@Path("register_get") String register,
-//                         @Body HashMap<String, Object> param);
 
-//    이거는 돌아감
-//    @GET("{register}")
-//    Call<List<Repo>> listRepos(@Path("register") String register);
-//                               @Body HashMap<String, Object> param);
-//                                       String user);
-
-    //    중복여부 확인
+    //   회원가입시 중복여부 확인
     @POST("{register1}")
     Call<User> postDuplicatedPeople(
             @Path("register1") String register,

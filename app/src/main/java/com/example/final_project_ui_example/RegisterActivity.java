@@ -4,24 +4,17 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-import androidx.core.content.FileProvider;
+
 import android.Manifest;
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.ImageDecoder;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.ContactsContract;
 import android.provider.MediaStore;
-import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -29,47 +22,23 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.FileProvider;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.ImageDecoder;
-import android.net.Uri;
-import android.os.Build;
-import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
-import android.util.Log;
-import android.view.View;
+
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.VideoView;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.sdsmdg.tastytoast.TastyToast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 
 
 import okhttp3.MediaType;
@@ -121,7 +90,7 @@ public class RegisterActivity extends AppCompatActivity {
         name = etName.getText().toString();
         phone = etPhone.getText().toString();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
+        ivRegisterFace.bringToFront();
 
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -304,7 +273,7 @@ public class RegisterActivity extends AppCompatActivity {
             case R.id.ivRegisterFace : //사진 업로드시 보여줘야할 imageview
                 break;
 
-            case R.id.btnRegister: // db연결, 추가 후, Toast로 띄워준다.
+            case R.id.btnRegisterGoHome: // db연결, 추가 후, Toast로 띄워준다.
                 long now = System.currentTimeMillis();
                 Date date = new Date(now);
                 SimpleDateFormat nowTime = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
@@ -349,7 +318,9 @@ public class RegisterActivity extends AppCompatActivity {
                                     setResult(1000, register_intent);
 
                                     Log.d("REGISTER_ACTIVITY 성공 축하합니다", etName.getText().toString() + " phone = "+ etPhone.getText().toString());
-                                    finish();
+//
+                                    startActivity(new Intent(RegisterActivity.this, RegisterEnd.class));
+//                                    finish();
                                 } else {
                                     Log.d("RegisterActivity", "접속은 했지만 등록은 실패" + response.raw());
                                 }
@@ -363,7 +334,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                         @Override
                         public void onFailure(Call<ResponseBody> call, Throwable t) {
-                            registerfail(1);
+                            startActivity(new Intent(RegisterActivity.this, RegisterEnd.class));
                         }
                     });
 
